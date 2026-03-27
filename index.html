@@ -6,8 +6,8 @@
 <title>POWER EXPRESS | Kinetic Obsidian Energy</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<!-- Fonts: Orbitron (headlines) · Space Grotesk (body) -->
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<!-- Fonts: Space Grotesk -->
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
@@ -36,7 +36,7 @@ tailwind.config = {
         "surface-variant": "#41484d",
       },
       fontFamily: {
-        "headline": ["Orbitron", "sans-serif"],
+        "headline": ["Space Grotesk", "sans-serif"],
         "body": ["Space Grotesk", "sans-serif"],
         "label": ["Space Grotesk", "sans-serif"],
         "sans": ["Space Grotesk", "sans-serif"],
@@ -160,8 +160,12 @@ tailwind.config = {
 }
 .tc-dot.active { width: 32px; background: #0098F1; }
 
-/* ── Headline font override for h-tags ── */
-h1, h2, h3, h4 { font-family: 'Orbitron', sans-serif !important; }
+/* ── Typography weights ── */
+body { font-weight: 300; }
+nav, footer { font-weight: 300; }
+h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif !important; }
+h1, h2 { font-weight: 700; }
+h3, h4 { font-weight: 600; }
 </style>
 </head>
 <body class="bg-background text-on-surface font-sans antialiased selection:bg-primary/20 selection:text-white corporate-grid min-h-screen flex flex-col">
@@ -209,7 +213,7 @@ h1, h2, h3, h4 { font-family: 'Orbitron', sans-serif !important; }
     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-background/40 backdrop-blur-md text-primary text-[9px] font-bold tracking-[0.3em] mb-6 font-body">
       <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span> STATUS: OPERATIONAL
     </div>
-    <h1 class="text-4xl md:text-6xl font-black tracking-tight leading-[1.15] mb-6">The Future Of <span class="text-white font-medium">Autonomy.</span></h1>
+    <h1 class="text-4xl md:text-6xl font-black tracking-tight leading-[1.15] mb-6">The Future of <span class="text-white font-medium">Autonomy.</span></h1>
     <p class="text-base md:text-lg text-on-surface-variant mb-10 max-w-xl leading-relaxed font-body">
       Experience a premium multi-brand ecosystem designed for seamless solar integration, intelligent storage, and hyper-efficient mobility.
     </p>
@@ -300,7 +304,7 @@ h1, h2, h3, h4 { font-family: 'Orbitron', sans-serif !important; }
   <div class="max-w-7xl mx-auto">
     <div class="text-center mb-16 reveal">
       <label class="text-primary font-bold tracking-[0.4em] text-[10px] mb-4 block uppercase font-body">COMMAND CENTER</label>
-      <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">Grid Control In The<br/><span class="text-primary">Palm Of Your Hand</span></h2>
+      <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">Grid Control in the<br/><span class="text-primary">Palm of Your Hand</span></h2>
       <p class="text-on-surface-variant max-w-xl mx-auto text-base font-body">Monitor energy flow, manage storage cycles, and monetize excess generation through our secure V2G mobile platform.</p>
     </div>
 
@@ -635,7 +639,7 @@ h1, h2, h3, h4 { font-family: 'Orbitron', sans-serif !important; }
   <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,152,241,0.06)_0%,transparent_70%)]"></div>
   <div class="relative z-10 max-w-4xl mx-auto reveal">
     <label class="text-primary font-bold tracking-[0.5em] text-[10px] mb-8 block uppercase font-body">The Final Step</label>
-    <h1 class="text-4xl md:text-7xl font-black tracking-tight leading-tight mb-12">Begin The <span class="text-primary">Switch.</span></h1>
+    <h1 class="text-4xl md:text-7xl font-black tracking-tight leading-tight mb-12">Begin the <span class="text-primary">Switch.</span></h1>
     <div class="flex justify-center gap-6 flex-wrap">
       <button class="btn-kinetic btn-kinetic-primary px-12 py-5 text-sm">Get Started Now</button>
       <button class="btn-kinetic btn-kinetic-outline px-12 py-5 text-sm">Contact Sales</button>

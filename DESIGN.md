@@ -19,14 +19,14 @@ To achieve a premium futuristic polish, secondary actions and floating navigatio
 - **Signature Textures:** Use a subtle linear gradient for primary buttons transitioning from `primary` (#0098F1) to a lighter blue `primary-container` (#5BBBF7) at a 135° angle. This creates a clean, luminous effect without overpowering the interface.
 ---
 ## 3. Typography: The Editorial Voice
-We use exactly **two Google Fonts** — **Orbitron** for geometric command authority, and **Space Grotesk** for technical clarity. No other typefaces.
+We use **Space Grotesk** as the sole typeface across all text. No other typefaces.
 
-**Combined Google Fonts URL (use on every page):**
-`https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap`
+**Google Fonts URL (use on every page):**
+`https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap`
 
-*   **Display & Headlines — Orbitron (wght 400–900):** Used for all `h1`–`h4` elements and `.font-headline` utility classes. The bold geometric letterforms signal future-grade hardware. Use 700–900 at hero/display scale, 600–700 for section headings. Apply tight letter-spacing (`-0.02em`) at large sizes. CSS override: `h1, h2, h3, h4 { font-family: 'Orbitron', sans-serif !important; }`
-*   **Body, Labels & UI — Space Grotesk (wght 300–700):** The technical workhorse for all body copy, navigation links, button labels, captions, data chips, and form fields. Use weight 400 for running text, 500–600 for emphasis, 700 for strong label/uppercase text.
-*   **Tailwind config:** `fontFamily.headline = ["Orbitron", "sans-serif"]` · `fontFamily.body = fontFamily.sans = fontFamily.label = ["Space Grotesk", "sans-serif"]`
+*   **Headings & Titles — Space Grotesk (Semibold 600 / Bold 700):** Used for all `h1`–`h4` elements and `.font-headline` utility classes. Use weight 700 for `h1`/`h2` at hero and section scale, weight 600 for `h3`/`h4` sub-headings. Apply tight letter-spacing (`-0.02em`) at large sizes. CSS override: `h1, h2 { font-family: 'Space Grotesk', sans-serif !important; font-weight: 700; } h3, h4 { font-family: 'Space Grotesk', sans-serif !important; font-weight: 600; }`
+*   **Body, Navigation & Footer — Space Grotesk (Light 300):** Used for all body copy, navigation links, footer text, button labels, captions, data chips, and form fields. Base weight is 300 (Light). Use 500–600 for emphasis, 700 for strong label/uppercase text.
+*   **Tailwind config:** `fontFamily.headline = ["Space Grotesk", "sans-serif"]` · `fontFamily.body = fontFamily.sans = fontFamily.label = ["Space Grotesk", "sans-serif"]`
 ---
 ## 4. Elevation & Depth: Tonal Layering
 Traditional drop shadows are forbidden. We use light to define space, not ink.

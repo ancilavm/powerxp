@@ -6,8 +6,8 @@
 <title>Power Express | Expert Installation Simplified</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<!-- Fonts: Orbitron (headlines) · Space Grotesk (body) -->
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<!-- Fonts: Space Grotesk -->
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
@@ -36,7 +36,7 @@ tailwind.config = {
         "surface-variant": "#41484d",
       },
       fontFamily: {
-        "headline": ["Orbitron", "sans-serif"],
+        "headline": ["Space Grotesk", "sans-serif"],
         "body": ["Space Grotesk", "sans-serif"],
         "label": ["Space Grotesk", "sans-serif"],
         "sans": ["Space Grotesk", "sans-serif"],
@@ -51,7 +51,11 @@ tailwind.config = {
 }
 </script>
 <style>
-h1, h2, h3, h4 { font-family: 'Orbitron', sans-serif !important; }
+body { font-weight: 300; }
+nav, footer { font-weight: 300; }
+h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif !important; }
+h1, h2 { font-weight: 700; }
+h3, h4 { font-weight: 600; }
 .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
 .glass-panel { background: rgba(15,26,43,0.7); backdrop-filter: blur(20px); }
 .btn-kinetic { position:relative; overflow:hidden; transition:all 0.3s cubic-bezier(0.4,0,0.2,1); border-radius:9999px; font-family:'Space Grotesk',sans-serif; text-transform:uppercase; letter-spacing:0.1em; font-weight:700; display:inline-flex; align-items:center; justify-content:center; gap:8px; }
@@ -118,7 +122,7 @@ h1, h2, h3, h4 { font-family: 'Orbitron', sans-serif !important; }
 <section class="py-24 md:py-32 px-8 bg-surface">
   <div class="max-w-7xl mx-auto">
     <div class="mb-20 reveal">
-      <h2 class="font-headline text-3xl md:text-4xl font-bold mb-4 tracking-tight">The Mathematics Of Autonomy</h2>
+      <h2 class="font-headline text-3xl md:text-4xl font-bold mb-4 tracking-tight">The Mathematics of Autonomy</h2>
       <p class="text-on-surface-variant max-w-xl text-base md:text-lg">Precision data modeling based on your local sunlight patterns and utility rates.</p>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-12 gap-6 reveal">
@@ -176,7 +180,7 @@ h1, h2, h3, h4 { font-family: 'Orbitron', sans-serif !important; }
 <section class="py-24 md:py-32 px-8 bg-background relative">
   <div class="max-w-5xl mx-auto">
     <div class="text-center mb-24 reveal">
-      <h2 class="font-headline text-4xl md:text-5xl font-bold mb-6">Your Path To Power</h2>
+      <h2 class="font-headline text-4xl md:text-5xl font-bold mb-6">Your Path to Power</h2>
       <div class="h-1 w-24 bg-primary mx-auto rounded-full"></div>
     </div>
     <div class="relative space-y-24">
@@ -230,7 +234,7 @@ h1, h2, h3, h4 { font-family: 'Orbitron', sans-serif !important; }
 <section class="py-32 md:py-48 px-8 relative overflow-hidden bg-background">
   <div class="absolute inset-0 z-0 opacity-10"><img alt="Sunset background" class="w-full h-full object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvQ5T7Lw0QGw-SFbqMohPF8Symshxyq7KniUFFI2jutm_zOUyl5AQFkMKT5vj2nFqbwYYpMyu7OsUHObDJ5HiG8SowD8PdkLC5YapIFbrMUSx3dQO2s7F0XbJQh7Mo9Oz_7j0d5KNxER0E46kT1Nh156dQ04qecDwqdGnbwQM7Bfpy8FtlMYaFdN0M6tLKz5kobaDT_UnlQoEkTcGssLZGhJ-SxmiWlHdz6rh_aRFQ5TTjH6JODDrtRwMCeVAOD3KFM25Jrx4T-C8"/></div>
   <div class="relative z-10 max-w-4xl mx-auto text-center reveal">
-    <h2 class="font-headline text-5xl md:text-7xl font-bold mb-8 tracking-tighter">Ready For <span class="text-primary">Independence?</span></h2>
+    <h2 class="font-headline text-5xl md:text-7xl font-bold mb-8 tracking-tighter">Ready for <span class="text-primary">Independence?</span></h2>
     <p class="text-lg md:text-xl text-on-surface-variant mb-12 max-w-2xl mx-auto leading-relaxed">Join over 15,000 homeowners who have secured their energy future with Power Express.</p>
     <div class="flex flex-col sm:flex-row gap-6 justify-center items-center">
       <button class="w-full sm:w-auto bg-primary text-on-primary px-10 py-5 rounded-xl font-bold text-xl kinetic-glow hover:opacity-90 transition-all shadow-lg shadow-primary/20 uppercase tracking-wide active:scale-95">Book Your Consultation</button>

@@ -6,8 +6,8 @@
 <title>Power Express | PX-Battery V.4 Ioncore</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<!-- Fonts: Orbitron (headlines) · Space Grotesk (body) -->
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<!-- Fonts: Space Grotesk -->
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
@@ -37,7 +37,7 @@ tailwind.config = {
         "surface-variant": "#41484d",
       },
       fontFamily: {
-        "headline": ["Orbitron", "sans-serif"],
+        "headline": ["Space Grotesk", "sans-serif"],
         "body": ["Space Grotesk", "sans-serif"],
         "label": ["Space Grotesk", "sans-serif"],
         "sans": ["Space Grotesk", "sans-serif"],
@@ -52,7 +52,11 @@ tailwind.config = {
 }
 </script>
 <style>
-h1, h2, h3, h4 { font-family: 'Orbitron', sans-serif !important; }
+body { font-weight: 300; }
+nav, footer { font-weight: 300; }
+h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif !important; }
+h1, h2 { font-weight: 700; }
+h3, h4 { font-weight: 600; }
 .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
 .glass-panel { background: rgba(15,26,43,0.7); backdrop-filter: blur(20px); }
 .spotlight-gradient { background: radial-gradient(circle at 50% 50%,rgba(0,152,241,0.1) 0%,rgba(8,16,32,0) 70%); }
