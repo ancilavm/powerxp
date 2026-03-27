@@ -160,12 +160,12 @@ tailwind.config = {
 }
 .tc-dot.active { width: 32px; background: #0098F1; }
 
-/* ── Typography weights ── */
+/* ── Typography weights and colors ── */
 body { font-weight: 300; }
 nav, footer { font-weight: 300; }
-h1, h2, h3, h4 { font-family: 'Space Grotesk', sans-serif !important; }
+h1, h2, h3, h4, h5, h6 { font-family: 'Space Grotesk', sans-serif !important; color: white; }
 h1, h2 { font-weight: 700; }
-h3, h4 { font-weight: 600; }
+h3, h4, h5, h6 { font-weight: 600; }
 </style>
 </head>
 <body class="bg-background text-on-surface font-sans antialiased selection:bg-primary/20 selection:text-white corporate-grid min-h-screen flex flex-col">
@@ -213,7 +213,7 @@ h3, h4 { font-weight: 600; }
     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-background/40 backdrop-blur-md text-primary text-[9px] font-bold tracking-[0.3em] mb-6 font-body">
       <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span> STATUS: OPERATIONAL
     </div>
-    <h1 class="text-4xl md:text-6xl font-black tracking-tight leading-[1.15] mb-6">The Future of <span class="text-white font-medium">Autonomy.</span></h1>
+    <h1 class="text-5xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight leading-[1.05] mb-6">The Future of<br/><span class="text-primary">Autonomy</span></h1>
     <p class="text-base md:text-lg text-on-surface-variant mb-10 max-w-xl leading-relaxed font-body">
       Experience a premium multi-brand ecosystem designed for seamless solar integration, intelligent storage, and hyper-efficient mobility.
     </p>
@@ -245,7 +245,7 @@ h3, h4 { font-weight: 600; }
   <div class="grid-overlay"></div>
   <div class="max-w-7xl mx-auto">
     <div class="flex justify-between items-end mb-12 reveal">
-      <h2 class="text-3xl md:text-4xl font-black tracking-tight">Product Categories</h2>
+      <h2 class="text-3xl md:text-4xl font-black tracking-tight">Product <span class="text-primary">Categories</span></h2>
       <a class="text-primary font-bold text-[10px] tracking-[0.2em] border-b border-primary/20 pb-1 hover:border-primary transition-all font-body" href="product_listing.html">VIEW CATALOG</a>
     </div>
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 reveal">
@@ -279,7 +279,7 @@ h3, h4 { font-weight: 600; }
   <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto reveal">
     <div class="p-12 rounded-kinetic bg-surface-container-low border border-white/5 relative group">
       <div class="flex items-center gap-3 text-on-surface-variant mb-8"><span class="material-symbols-outlined">block</span><span class="text-xs font-bold tracking-widest font-body">THE LEGACY WAY</span></div>
-      <h3 class="text-2xl md:text-3xl font-black tracking-tight leading-tight mb-8">Fragmented. Manual. Complex.</h3>
+      <h3 class="text-2xl md:text-3xl font-black tracking-tight leading-tight mb-8">Fragmented. Manual. Complex</h3>
       <ul class="space-y-5 font-medium text-on-surface-variant font-body">
         <li class="flex items-center gap-4"><span class="w-1 h-1 bg-on-surface-variant rounded-full"></span> Fragmented hardware suppliers</li>
         <li class="flex items-center gap-4"><span class="w-1 h-1 bg-on-surface-variant rounded-full"></span> Manual configuration errors</li>
@@ -289,7 +289,7 @@ h3, h4 { font-weight: 600; }
     <div class="p-12 rounded-kinetic bg-surface-container-low border border-primary/30 relative group overflow-hidden shadow-2xl shadow-primary/5">
       <div class="absolute -right-16 -top-16 w-48 h-48 bg-primary/5 rounded-full blur-3xl"></div>
       <div class="flex items-center gap-3 text-primary mb-8"><span class="material-symbols-outlined">verified</span><span class="text-xs font-bold tracking-widest font-body">THE POWER EXPRESS WAY</span></div>
-      <h3 class="text-2xl md:text-3xl font-black tracking-tight leading-tight mb-8">Unified. Automated. Integrated.</h3>
+      <h3 class="text-2xl md:text-3xl font-black tracking-tight leading-tight mb-8">Unified. Automated. <span class="text-primary">Integrated</span></h3>
       <ul class="space-y-5 text-on-surface font-medium font-body">
         <li class="flex items-center gap-4"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> One-click multi-brand ecosystem</li>
         <li class="flex items-center gap-4"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> AI-driven system configuration</li>
@@ -436,7 +436,7 @@ h3, h4 { font-weight: 600; }
 <section class="py-32 px-8 lg:px-24 bg-surface-container-low/20 border-y border-white/5 with-grid">
   <div class="grid-overlay"></div>
   <div class="max-w-7xl mx-auto text-center">
-    <h2 class="text-2xl md:text-4xl font-black tracking-tight leading-tight mb-6 reveal">Engineering Excellence</h2>
+    <h2 class="text-2xl md:text-4xl font-black tracking-tight leading-tight mb-6 reveal">Engineering <span class="text-primary">Excellence</span></h2>
     <p class="text-lg text-on-surface-variant max-w-3xl mx-auto mb-20 font-medium font-body reveal">A singular technical infrastructure connecting global products, intelligent configuration tools, and a certified network of energy engineers.</p>
     <div class="grid md:grid-cols-3 gap-8 text-left reveal">
       <div class="p-10 bg-surface-container-low rounded-kinetic border border-white/5 hover:border-primary/30 transition-all"><span class="material-symbols-outlined text-primary text-4xl mb-6">inventory_2</span><h4 class="text-lg font-bold mb-4">Tier-One Hardware</h4><p class="text-sm text-on-surface-variant font-body">Only tier-one energy hardware passes our rigorous efficiency stress tests.</p></div>
@@ -455,7 +455,7 @@ h3, h4 { font-weight: 600; }
     <div class="flex justify-between items-end mb-16 reveal">
       <div>
         <label class="text-primary font-bold tracking-[0.4em] text-[10px] mb-4 block uppercase font-body">SUCCESS STORIES</label>
-        <h2 class="text-2xl md:text-4xl font-black tracking-tight">Operational Success</h2>
+        <h2 class="text-2xl md:text-4xl font-black tracking-tight">Operational <span class="text-primary">Success</span></h2>
       </div>
       <div class="flex gap-3">
         <button id="tc-prev" class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/5 hover:border-primary/30 transition-all text-on-surface-variant active:scale-90"><span class="material-symbols-outlined">chevron_left</span></button>
@@ -475,7 +475,7 @@ h3, h4 { font-weight: 600; }
               <div class="relative w-24 h-24 md:w-32 md:h-32">
                 <div class="absolute inset-0 rounded-2xl border border-primary/25 rotate-6 transition-transform duration-500"></div>
                 <div class="relative w-full h-full rounded-2xl overflow-hidden border border-white/10 shadow-xl shadow-black/40">
-                  <img alt="Marcus Thorne" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJgZu5Kw7qTKobAsqPiJmp5-SgftXJWb3uFOdsAWJFra0jJOYO7SGWPCmiCHAbwmUtYqoAby6zAhc2VROROX3fWT9a9H5Nwxjnvf6QDZ_jxA0aWdO1WyeHdPWo6ol315_vJR6e0jZlZQTtU5Efz-N3x8WT9cZwKN1ShDLrruCOKic28k9XDGEj8tKR9qpwO-gvPsfFGvVAdQwcjV0_DFv1-LXlpDVzbzpJLFX9CTiOUaWkNPTzIiJgEpZrCaeGWbFN1fwSR-BMORo"/>
+                  <img alt="Marcus Thorne" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&h=300&q=80"/>
                 </div>
                 <div class="absolute -bottom-3 -right-3 w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/30">
                   <span class="material-symbols-outlined text-white text-[16px]" style="font-variation-settings:'FILL' 1;">format_quote</span>
@@ -504,7 +504,7 @@ h3, h4 { font-weight: 600; }
               <div class="relative w-24 h-24 md:w-32 md:h-32">
                 <div class="absolute inset-0 rounded-2xl border border-primary/25 rotate-6"></div>
                 <div class="relative w-full h-full rounded-2xl overflow-hidden border border-white/10 shadow-xl shadow-black/40">
-                  <img alt="Sarah Chen" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7USpJf6Euli38V9l5TfqzmEHVZPDzlIkqyo8I4SKZO8ZCJseQOpE6h-bgb51Ux6nN5iTU-OgbOW8l7CTW-8qKGjqSJOP6oLAWZrCyyr8YCmJwrzw_pDdIsyahEs53wPg7lkfd8pTMXOVSvGrF8fs708mwYZm-wMmgLBTPgZ_FnW5A2oQ0c220FrMPCM41wU9pPK1CeJpSSR0wMTRry-ImDERDtzZ08Z2Vf1u9pj0Z4x0d_OuQNJW_MMnbJ6ok7oRVql5JtVOF1Ro"/>
+                  <img alt="Sarah Chen" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&h=300&q=80"/>
                 </div>
                 <div class="absolute -bottom-3 -right-3 w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/30">
                   <span class="material-symbols-outlined text-white text-[16px]" style="font-variation-settings:'FILL' 1;">format_quote</span>
@@ -529,7 +529,7 @@ h3, h4 { font-weight: 600; }
               <div class="relative w-24 h-24 md:w-32 md:h-32">
                 <div class="absolute inset-0 rounded-2xl border border-primary/25 rotate-6"></div>
                 <div class="relative w-full h-full rounded-2xl overflow-hidden border border-white/10 shadow-xl shadow-black/40">
-                  <img alt="David Miller" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdgEcowiOwEtAirORXPfdPtQKejuGhMeIifJd3ycwVuqCE6MJQYuKnaaqF7OPMENQrCm7exxrsyxjPBlq4LbaQ7l9j4RXoB_13vBKKHUkcRIOcNfeR3G-KO2sfe83EeFFqG8HCXp9SgHu-adSzCiiJDPoEwEsKh16q2CD5xlYsAwID4Ft_pPfaI7M2QqXQ6ebZ3pGeR-luUYDisnX5p5VYXSREWDnlT2xBMxg3nwIXEv1s79iZJkaNNjdgvFNKYS-m3894QooXqqc"/>
+                  <img alt="David Miller" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=300&h=300&q=80"/>
                 </div>
                 <div class="absolute -bottom-3 -right-3 w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/30">
                   <span class="material-symbols-outlined text-white text-[16px]" style="font-variation-settings:'FILL' 1;">format_quote</span>
@@ -563,7 +563,7 @@ h3, h4 { font-weight: 600; }
   <div class="grid-overlay"></div>
   <div class="max-w-7xl mx-auto mb-20 flex flex-col items-center text-center reveal">
     <label class="text-primary font-bold tracking-[0.4em] text-[10px] mb-4 block uppercase font-body">DEPLOYMENT PATH</label>
-    <h2 class="text-2xl md:text-4xl font-black tracking-tight leading-tight">Kinetic Integration Flow</h2>
+    <h2 class="text-2xl md:text-4xl font-black tracking-tight leading-tight">Kinetic Integration <span class="text-primary">Flow</span></h2>
   </div>
   <div class="max-w-7xl mx-auto relative pt-12 reveal">
     <div class="absolute top-0 left-0 right-0 h-[2px] bg-white/5 hidden md:block"><div class="absolute top-0 left-0 h-full w-1/4 timeline-connector"></div></div>
@@ -593,7 +593,7 @@ h3, h4 { font-weight: 600; }
 <!-- ── Hardware Core ── -->
 <section class="py-32 px-8 lg:px-24 bg-surface-container-low/10 with-grid">
   <div class="grid-overlay"></div>
-  <div class="text-center mb-20 reveal"><h2 class="text-2xl md:text-4xl font-black tracking-tight mb-4">The Hardware Core</h2><div class="w-20 h-1.5 bg-primary mx-auto rounded-full"></div></div>
+  <div class="text-center mb-20 reveal"><h2 class="text-2xl md:text-4xl font-black tracking-tight mb-4">The Hardware <span class="text-primary">Core</span></h2><div class="w-20 h-1.5 bg-primary mx-auto rounded-full"></div></div>
   <div class="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto reveal">
     <div class="glass-panel rounded-kinetic p-4 group transition-all duration-500 hover:-translate-y-2"><div class="aspect-square rounded-kinetic overflow-hidden mb-8"><img alt="Solar Panels" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCY1Zwfwp9xua9JLa-GkFjxSSglzZfOu0VXMVsTe6zEu9YTtSnUwsJBP9KHLe892VKJ2ifzjw2Vmyuwt9ELJff2J_ntacYw9nxK0LH7h2oRrSpmv90dIUuHIFO90HXrLRq0yDcvj0NateKCviNGxFaDiKb2FE-_UrMVnWuN4xWNwau5SZGV-b8MLZ4PIDbqIZRYvqYeeT1QJMUkhP9JDeZya9Omw1tlS9XXlqEuc6w6uvcur_RPvf0vtatgXydKfZb5loAwQJHtdOs"/></div><div class="px-4 pb-4"><span class="text-primary text-[10px] font-bold tracking-[0.2em] block mb-3 uppercase font-body">Solar Generation</span><h4 class="mb-4 text-lg">Elite Photovoltaic Array</h4><p class="text-sm text-on-surface-variant mb-6 font-body">Proprietary cell technology delivering up to 24.2% conversion efficiency in low-light environments.</p><button class="text-primary font-bold text-xs tracking-widest flex items-center gap-2 hover:gap-4 transition-all uppercase font-body">Explore Specs <span class="material-symbols-outlined text-sm">east</span></button></div></div>
     <div class="glass-panel rounded-kinetic p-4 group transition-all duration-500 hover:-translate-y-2"><div class="aspect-square rounded-kinetic overflow-hidden mb-8"><img alt="Battery Storage" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_chmonVTHuIYkp-E14LKjSsmBWdVCXsPAcFzP-azdVB8aCOnXpvn64nOoX9cdarZ6JYe01BozSIZYkcVZg1zB8N__LpPH53r_dSjThQHgxSRan9gFAVDv_eiWi8GpXQnIlyNdtzGzH_3ml7fsDtvqeSirZTS7ZERYG8NjjvGHYwrvCNGRcRvkExWBRSFVwmjrPYKQzNebtqG56T88mKoNE4G3ECuo6LSbce9WAam8WopaerZH69XO5PsiI9SVN0wWcGQ1dpQK3Oc"/></div><div class="px-4 pb-4"><span class="text-primary text-[10px] font-bold tracking-[0.2em] block mb-3 uppercase font-body">Energy Storage</span><h4 class="mb-4 text-lg">Kinetic Obsidian Node</h4><p class="text-sm text-on-surface-variant mb-6 font-body">Stackable lithium-iron-phosphate modules with millisecond-fast grid disconnection protection.</p><button class="text-primary font-bold text-xs tracking-widest flex items-center gap-2 hover:gap-4 transition-all uppercase font-body">Explore Specs <span class="material-symbols-outlined text-sm">east</span></button></div></div>
@@ -605,7 +605,7 @@ h3, h4 { font-weight: 600; }
 <section class="py-32 px-8 lg:px-24">
   <div class="max-w-7xl mx-auto glass-panel rounded-kinetic p-12 lg:p-20 relative overflow-hidden flex flex-col lg:flex-row items-center gap-20 reveal">
     <div class="z-10 flex-1">
-      <h2 class="text-2xl md:text-4xl font-black tracking-tight leading-tight mb-8">Architect Your Grid.</h2>
+      <h2 class="text-2xl md:text-4xl font-black tracking-tight leading-tight mb-8">Architect Your <span class="text-primary">Grid</span></h2>
       <p class="text-lg text-on-surface-variant mb-12 font-medium leading-relaxed font-body">Our smart configurator allows you to visualize and simulate your entire energy infrastructure before a single panel is ordered. Precise, data-backed, and fully integrated.</p>
       <div class="space-y-8 mb-12">
         <div class="flex items-center gap-5 group"><div class="w-12 h-12 rounded-kinetic bg-primary/10 border border-primary/20 flex items-center justify-center transition-all group-hover:bg-primary/20"><span class="material-symbols-outlined text-primary">polyline</span></div><span class="text-sm font-bold tracking-wide font-body">Real-Time Topographic Yield Analysis</span></div>
@@ -639,7 +639,7 @@ h3, h4 { font-weight: 600; }
   <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,152,241,0.06)_0%,transparent_70%)]"></div>
   <div class="relative z-10 max-w-4xl mx-auto reveal">
     <label class="text-primary font-bold tracking-[0.5em] text-[10px] mb-8 block uppercase font-body">The Final Step</label>
-    <h1 class="text-4xl md:text-7xl font-black tracking-tight leading-tight mb-12">Begin the <span class="text-primary">Switch.</span></h1>
+    <h1 class="text-4xl md:text-7xl font-black tracking-tight leading-tight mb-12">Begin the <span class="text-primary">Switch</span></h1>
     <div class="flex justify-center gap-6 flex-wrap">
       <button class="btn-kinetic btn-kinetic-primary px-12 py-5 text-sm">Get Started Now</button>
       <button class="btn-kinetic btn-kinetic-outline px-12 py-5 text-sm">Contact Sales</button>

@@ -24,9 +24,34 @@ We use **Space Grotesk** as the sole typeface across all text. No other typeface
 **Google Fonts URL (use on every page):**
 `https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap`
 
-*   **Headings & Titles — Space Grotesk (Semibold 600 / Bold 700):** Used for all `h1`–`h4` elements and `.font-headline` utility classes. Use weight 700 for `h1`/`h2` at hero and section scale, weight 600 for `h3`/`h4` sub-headings. Apply tight letter-spacing (`-0.02em`) at large sizes. CSS override: `h1, h2 { font-family: 'Space Grotesk', sans-serif !important; font-weight: 700; } h3, h4 { font-family: 'Space Grotesk', sans-serif !important; font-weight: 600; }`
-*   **Body, Navigation & Footer — Space Grotesk (Light 300):** Used for all body copy, navigation links, footer text, button labels, captions, data chips, and form fields. Base weight is 300 (Light). Use 500–600 for emphasis, 700 for strong label/uppercase text.
+### Type Scale
+
+| Role | Element | Size (desktop) | Weight |
+|------|---------|----------------|--------|
+| Hero Title | `h1` (hero) | 72–88px (`clamp`) | 700 Bold |
+| Section Heading | `h2` | 32–40px | 700 Bold |
+| Sub-heading | `h3` | 20–28px | 600 Semibold |
+| Component Title | `h4` | 16–20px | 600 Semibold |
+| Body Copy | `p`, `span` | 16–18px | 300 Light |
+| Navigation | `nav` links | 14–16px | 300 Light |
+| Footer | `footer` text | 14–16px | 300 Light |
+
+### Heading Rules
+*   **Color system:** All headings default to `color: white`. Apply a single `<span class="text-primary">...</span>` to the last or most significant word for a white + blue accent hierarchy. This is the standard visual pattern across every page.
+*   **No trailing periods:** Headings and titles must not end with a full stop. Question marks and other punctuation used for meaning are permitted.
+*   **CSS override (applied on every page):**
+    ```css
+    h1, h2, h3, h4, h5, h6 { font-family: 'Space Grotesk', sans-serif !important; color: white; }
+    h1, h2 { font-weight: 700; }
+    h3, h4, h5, h6 { font-weight: 600; }
+    body { font-weight: 300; }
+    nav, footer { font-weight: 300; }
+    ```
+*   **Body, Navigation & Footer — Space Grotesk (Light 300):** Base weight 300 for all body copy, nav links, footer text, button labels, captions, data chips, and form fields. Use 500–600 for inline emphasis, 700 for uppercase labels/badges.
 *   **Tailwind config:** `fontFamily.headline = ["Space Grotesk", "sans-serif"]` · `fontFamily.body = fontFamily.sans = fontFamily.label = ["Space Grotesk", "sans-serif"]`
+
+### Testimonial Images
+*   **Real human photographs only.** Do not use illustrated, cartoon, or AI-generated avatar images in testimonial sections. Use high-quality, professional, realistic headshots with consistent lighting, neutral backgrounds, and forward-facing framing. Source from Unsplash or equivalent royalty-free libraries.
 ---
 ## 4. Elevation & Depth: Tonal Layering
 Traditional drop shadows are forbidden. We use light to define space, not ink.
