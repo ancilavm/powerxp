@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>POWER EXPRESS | Kinetic Obsidian Energy</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<!-- Fonts: Orbitron (headlines) · Space Grotesk (body) -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary": "#0098F1",
+        "on-primary": "#ffffff",
+        "primary-container": "#004a78",
+        "primary-fixed-dim": "#5BBBF7",
+        "surface": "#081020",
+        "surface-container-lowest": "#050c18",
+        "surface-container-low": "#0F1A2B",
+        "surface-container": "#142033",
+        "surface-container-high": "#1A2840",
+        "surface-container-highest": "#1A263A",
+        "background": "#081020",
+        "on-surface": "#e1e2e8",
+        "on-surface-variant": "#c1c7ce",
+        "outline": "#8b9198",
+        "outline-variant": "#41484d",
+        "secondary": "#97cbff",
+        "tertiary": "#76f9ea",
+        "surface-variant": "#41484d",
+      },
+      fontFamily: {
+        "headline": ["Orbitron", "sans-serif"],
+        "body": ["Space Grotesk", "sans-serif"],
+        "label": ["Space Grotesk", "sans-serif"],
+        "sans": ["Space Grotesk", "sans-serif"],
+      },
+      borderRadius: {
+        "DEFAULT": "0.75rem", "sm": "0.375rem", "md": "0.5rem",
+        "lg": "0.75rem", "xl": "1rem", "2xl": "1.5rem",
+        "full": "9999px", "kinetic": "12px",
+      },
+    },
+  },
+}
+</script>
+<style>
+/* ── Base ── */
+.material-symbols-outlined { font-family: 'Material Symbols Outlined' !important; font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+.glass-panel { background: rgba(15,26,43,0.7); backdrop-filter: blur(20px); border: 1px solid rgba(0,152,241,0.12); }
+.btn-kinetic { position:relative; overflow:hidden; transition:all 0.3s cubic-bezier(0.4,0,0.2,1); border-radius:9999px; font-family:'Space Grotesk',sans-serif; text-transform:uppercase; letter-spacing:0.1em; font-weight:700; display:inline-flex; align-items:center; justify-content:center; gap:8px; }
+.btn-kinetic-primary { background:#0098F1; color:#ffffff; }
+.btn-kinetic-primary:hover { box-shadow:0 0 25px rgba(0,152,241,0.5); transform:translateY(-1px); }
+.btn-kinetic-outline { border:1px solid rgba(0,152,241,0.3); background:rgba(255,255,255,0.05); backdrop-filter:blur(8px); color:#e1e2e8; }
+.btn-kinetic-outline:hover { background:rgba(0,152,241,0.08); border-color:rgba(0,152,241,0.6); }
+.hide-scrollbar::-webkit-scrollbar { display:none; } .hide-scrollbar { -ms-overflow-style:none; scrollbar-width:none; }
+.partner-logo { filter:grayscale(100%) brightness(0.8); transition:all 0.4s ease; }
+.partner-logo:hover { filter:grayscale(0%) brightness(1); }
+.corporate-grid { background-image:linear-gradient(to right,rgba(0,152,241,0.02) 1px,transparent 1px),linear-gradient(to bottom,rgba(0,152,241,0.02) 1px,transparent 1px); background-size:60px 60px; }
+.timeline-connector { background:#0098F1; }
+.reveal { opacity:0; transform:translateY(24px); transition:opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity:1; transform:none; }
+.nav-dropdown { opacity:0; visibility:hidden; transform:translateY(8px); transition:all 0.2s ease; }
+.nav-trigger:hover .nav-dropdown, .nav-trigger:focus-within .nav-dropdown { opacity:1; visibility:visible; transform:translateY(0); }
+.store-btn { display:inline-flex; align-items:center; gap:12px; padding:12px 20px; background:rgba(0,0,0,0.85); border:1px solid rgba(255,255,255,0.12); border-radius:14px; transition:all 0.25s ease; text-decoration:none; }
+.store-btn:hover { border-color:rgba(0,152,241,0.35); background:rgba(0,0,0,0.95); box-shadow:0 0 20px rgba(0,152,241,0.12); }
+
+/* ── Infinite Grid ── */
+@keyframes gridScroll {
+  from { background-position: 0 0; }
+  to   { background-position: 40px 40px; }
+}
+.with-grid { position: relative; overflow: hidden; }
+.grid-overlay {
+  position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    linear-gradient(rgba(0,152,241,0.10) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,152,241,0.10) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: gridScroll 5s linear infinite;
+  transition: mask-image 0.25s ease, -webkit-mask-image 0.25s ease;
+}
+.with-grid > * { position: relative; z-index: 1; }
+
+/* ── Cinematic Card ── */
+.cinematic-card {
+  background: linear-gradient(135deg, #06101e 0%, #0a1828 40%, #0d1f35 70%, #070f1b 100%);
+  box-shadow:
+    0 0 0 1px rgba(0,152,241,0.12),
+    0 0 100px rgba(0,152,241,0.05),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+}
+.film-grain-overlay {
+  position: absolute; inset: 0; pointer-events: none; z-index: 1; opacity: 0.035;
+  mix-blend-mode: screen;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+.cin-grid {
+  position: absolute; inset: 0; pointer-events: none; z-index: 1;
+  background-image:
+    linear-gradient(rgba(0,152,241,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,152,241,0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 70% 80% at 50% 50%, black 0%, transparent 85%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 80% at 50% 50%, black 0%, transparent 85%);
+}
+.card-sheen {
+  position: absolute; inset: 0; pointer-events: none; z-index: 2;
+  background: radial-gradient(circle 600px at var(--sheen-x, 120%) var(--sheen-y, 50%), rgba(0,152,241,0.05), transparent 60%);
+}
+.iphone-cinema {
+  box-shadow:
+    inset 0 0 0 1.5px rgba(255,255,255,0.07),
+    inset 0 0 0 9px rgba(0,0,0,0.95),
+    0 60px 120px rgba(0,0,0,0.8),
+    0 0 0 0.5px rgba(255,255,255,0.03);
+}
+.app-btn-cinematic {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 11px 18px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 14px;
+  text-decoration: none; color: white;
+  transition: all 0.25s ease;
+}
+.app-btn-cinematic:hover {
+  background: rgba(0,152,241,0.08);
+  border-color: rgba(0,152,241,0.25);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+}
+.app-btn-cinematic:active { transform: translateY(0); }
+
+/* ── Testimonial Carousel ── */
+.tc-card {
+  position: absolute; inset: 0;
+  opacity: 0; transform: translateX(30px);
+  transition: opacity 0.55s cubic-bezier(0.4,0,0.2,1), transform 0.55s cubic-bezier(0.4,0,0.2,1);
+  pointer-events: none;
+}
+.tc-card.tc-active {
+  opacity: 1; transform: translateX(0);
+  pointer-events: auto;
+}
+.tc-card.tc-exit {
+  opacity: 0; transform: translateX(-30px);
+}
+.tc-dot {
+  height: 3px; border-radius: 9999px; cursor: pointer;
+  background: rgba(255,255,255,0.2); width: 8px;
+  transition: width 0.3s ease, background 0.3s ease;
+}
+.tc-dot.active { width: 32px; background: #0098F1; }
+
+/* ── Headline font override for h-tags ── */
+h1, h2, h3, h4 { font-family: 'Orbitron', sans-serif !important; }
+</style>
+</head>
+<body class="bg-background text-on-surface font-sans antialiased selection:bg-primary/20 selection:text-white corporate-grid min-h-screen flex flex-col">
+
+<!-- ═══════════════════════════════ UNIFIED NAVBAR ═══════════════════════════════ -->
+<header class="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 pt-6" id="main-nav">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-3 bg-slate-900/60 backdrop-blur-3xl rounded-full border border-white/10 shadow-[0px_24px_48px_-12px_rgba(0,152,241,0.15)] transition-all duration-300">
+    <a href="code.html" class="h-8 flex items-center flex-shrink-0">
+      <img alt="PowerXpress" class="h-8 w-auto brightness-0 invert" src="https://lh3.googleusercontent.com/aida/ADBb0ug-lxE44XHwJBbLVEwP7fHTaucksv5QbYGbxkELyCixWL8QtZ4Ebjy6M53ysh7XsFQQUpi836YnSuGTnYsGOwltGktg0hQpI-tLol4yCgYuUcWju3PhruJpboMmPI7jSnYBl-YeKJOK-1rrl1knR7AuD0juDFmVj8sVSZokAMiBSZM9yGrOO0WsXQeq3CzsGnaqTFywW_xUMxLRzwKAaP1L2WCBuFNYURRW3ZXDIEK2iEa78b6HDPm9Dyzh5puFgvqSYKg3hce7d7Q"/>
+    </a>
+    <nav class="hidden lg:flex items-center gap-1 font-body tracking-tight text-xs uppercase">
+      <a class="text-sky-400 font-bold bg-white/5 px-4 py-2 rounded-full transition-all" href="code.html">Home</a>
+      <a class="text-slate-400 hover:text-sky-200 hover:bg-white/5 px-4 py-2 rounded-full transition-all" href="../solution/code.html">Solutions</a>
+      <div class="nav-trigger relative">
+        <button class="text-slate-400 hover:text-sky-200 hover:bg-white/5 flex items-center gap-0.5 px-4 py-2 rounded-full transition-all">Products <span class="material-symbols-outlined text-[18px] mt-0.5">expand_more</span></button>
+        <div class="nav-dropdown absolute top-full left-1/2 -translate-x-1/2 mt-3 w-52 bg-surface-container-low/95 backdrop-blur-xl rounded-xl border border-white/10 shadow-2xl shadow-black/50 overflow-hidden">
+          <a class="block px-5 py-3 text-slate-400 hover:text-sky-200 hover:bg-white/5 transition-colors text-xs tracking-wide font-body" href="../product_listing/code.html">Product Catalogue</a>
+          <a class="block px-5 py-3 text-slate-400 hover:text-sky-200 hover:bg-white/5 transition-colors text-xs tracking-wide font-body" href="../product_detailed/code.html">Product Details</a>
+        </div>
+      </div>
+      <a class="text-slate-400 hover:text-sky-200 hover:bg-white/5 px-4 py-2 rounded-full transition-all" href="../system_builder/code.html">System Builder</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button class="material-symbols-outlined text-slate-400 hover:text-sky-200 p-2 hover:bg-white/5 rounded-full transition-all active:scale-90">notifications</button>
+      <button class="material-symbols-outlined text-slate-400 hover:text-sky-200 p-2 hover:bg-white/5 rounded-full transition-all active:scale-90">settings</button>
+      <a href="../system_builder/code.html" class="ml-1 bg-primary text-on-primary px-5 py-2 rounded-full font-bold text-xs uppercase tracking-wider hover:shadow-[0_0_20px_rgba(0,152,241,0.4)] active:scale-90 transition-all font-body">Build System</a>
+    </div>
+  </div>
+</header>
+
+<main class="flex-grow pt-24 md:pt-32">
+
+<!-- ════════════════════════════════════════════════════════
+     HERO — background image | SVG animated paths | content
+     ═══════════════════════════════════════════════════════ -->
+<section class="relative h-[80vh] min-h-[700px] flex items-center px-8 lg:px-24 overflow-hidden">
+  <!-- Layer 1: Background image -->
+  <div class="absolute inset-0 z-0">
+    <img alt="Futuristic Minimal House with PowerXpress system" class="w-full h-full object-cover brightness-[0.4] scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3OXkn9giheaAXTxMrytXLGaZL20JjgbeYkAZF4BFDvqTjq_snK5irJmwJuWqa4gVKwjoKNseDVu2YG-jSefwxaWWihxaqZ8K_u68uGNjmUiT8L0-dhExkP9ynMOu93UjuVMRgmIpnNBC7YLc5vf-BR587X4K0I5A6Wq4NbZMx6PM0hNopaXXptk8nxL6Gn4SjYrPTaBOe75zdz5cmfcIS2ifA3TCn5puhtNM0cAg8HjoMVuv_Ccx5ytYB53PTOPGpZyNsfUYnXm0"/>
+    <div class="absolute inset-0 bg-gradient-to-r from-background via-background/40 to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40"></div>
+  </div>
+  <!-- Layer 2: Content -->
+  <div class="relative z-10 max-w-3xl reveal">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-background/40 backdrop-blur-md text-primary text-[9px] font-bold tracking-[0.3em] mb-6 font-body">
+      <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span> STATUS: OPERATIONAL
+    </div>
+    <h1 class="text-4xl md:text-6xl font-black tracking-tight leading-[1.15] mb-6">The Future Of <span class="text-white font-medium">Autonomy.</span></h1>
+    <p class="text-base md:text-lg text-on-surface-variant mb-10 max-w-xl leading-relaxed font-body">
+      Experience a premium multi-brand ecosystem designed for seamless solar integration, intelligent storage, and hyper-efficient mobility.
+    </p>
+    <div class="flex flex-wrap gap-4">
+      <button class="btn-kinetic btn-kinetic-primary px-10 py-4">Configure System</button>
+      <button class="btn-kinetic btn-kinetic-outline px-10 py-4">View Ecosystem</button>
+    </div>
+  </div>
+</section>
+
+<!-- ── Partners Bar ── -->
+<section class="py-12 px-8 lg:px-24 bg-background border-y border-white/5 overflow-hidden with-grid reveal">
+  <div class="grid-overlay"></div>
+  <div class="max-w-7xl mx-auto flex flex-col items-center">
+    <label class="text-on-surface-variant font-bold tracking-[0.4em] text-[9px] mb-8 block opacity-60 font-body">EMPOWERING THE LEADERS</label>
+    <div class="flex flex-wrap justify-center gap-12 md:gap-20 items-center opacity-80">
+      <div class="flex items-center gap-2 partner-logo cursor-pointer font-body"><span class="material-symbols-outlined text-3xl">cloud</span><span class="font-black tracking-widest text-sm">SKYNET</span></div>
+      <div class="flex items-center gap-2 partner-logo cursor-pointer font-body"><span class="material-symbols-outlined text-3xl">architecture</span><span class="font-black tracking-widest text-sm">STRUCT</span></div>
+      <div class="flex items-center gap-2 partner-logo cursor-pointer font-body"><span class="material-symbols-outlined text-3xl">rocket_launch</span><span class="font-black tracking-widest text-sm">ORBITX</span></div>
+      <div class="flex items-center gap-2 partner-logo cursor-pointer font-body"><span class="material-symbols-outlined text-3xl">hub</span><span class="font-black tracking-widest text-sm">NEXUS</span></div>
+      <div class="flex items-center gap-2 partner-logo cursor-pointer font-body"><span class="material-symbols-outlined text-3xl">precision_manufacturing</span><span class="font-black tracking-widest text-sm">FABRIK</span></div>
+      <div class="flex items-center gap-2 partner-logo cursor-pointer font-body"><span class="material-symbols-outlined text-3xl">diamond</span><span class="font-black tracking-widest text-sm">PURE</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Product Categories ── -->
+<section class="py-32 px-8 lg:px-24 bg-background with-grid">
+  <div class="grid-overlay"></div>
+  <div class="max-w-7xl mx-auto">
+    <div class="flex justify-between items-end mb-12 reveal">
+      <h2 class="text-3xl md:text-4xl font-black tracking-tight">Product Categories</h2>
+      <a class="text-primary font-bold text-[10px] tracking-[0.2em] border-b border-primary/20 pb-1 hover:border-primary transition-all font-body" href="../product_listing/code.html">VIEW CATALOG</a>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 reveal">
+      <div class="relative aspect-[3/4] overflow-hidden rounded-kinetic group cursor-pointer border border-white/5">
+        <img alt="Residential Storage" class="absolute inset-0 w-full h-full object-cover brightness-[0.4] group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_chmonVTHuIYkp-E14LKjSsmBWdVCXsPAcFzP-azdVB8aCOnXpvn64nOoX9cdarZ6JYe01BozSIZYkcVZg1zB8N__LpPH53r_dSjThQHgxSRan9gFAVDv_eiWi8GpXQnIlyNdtzGzH_3ml7fsDtvqeSirZTS7ZERYG8NjjvGHYwrvCNGRcRvkExWBRSFVwmjrPYKQzNebtqG56T88mKoNE4G3ECuo6LSbce9WAam8WopaerZH69XO5PsiI9SVN0wWcGQ1dpQK3Oc"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+        <div class="absolute bottom-8 left-8 right-8"><h4 class="leading-tight mb-2 text-lg">Residential<br/>Storage</h4><div class="w-0 group-hover:w-12 h-1 bg-primary transition-all duration-300"></div></div>
+      </div>
+      <div class="relative aspect-[3/4] overflow-hidden rounded-kinetic group cursor-pointer border border-white/5">
+        <img alt="EV Charging" class="absolute inset-0 w-full h-full object-cover brightness-[0.4] group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCg7AeTKM-sVOrn84UUtPE9TEjjAGPjEuO57AHlF457LHq3w4rTWfNCtP_FAoJPWx51kKsFecnhCr3jpPjpELWsc2dwNUG7XYxi80Zqt8vU-1RKe1FZuIUr-megB7unTkF0ktXcA6ERsuDRYS8pl2p_ajm0qJ9N7-Yg8YJ4OQmLUUJ_ys-JNfwvrtuuhCbyEZyzRv7tBjCz5wxrhLq8Qz7k-OyPg6eA90v7ODRAap5lkgW0Jlm1ulfYwBYMQ3cL0D9ibB3kY_EZ1to"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+        <div class="absolute bottom-8 left-8 right-8"><h4 class="leading-tight mb-2 text-lg">EV<br/>Charging</h4><div class="w-0 group-hover:w-12 h-1 bg-primary transition-all duration-300"></div></div>
+      </div>
+      <div class="relative aspect-[3/4] overflow-hidden rounded-kinetic group cursor-pointer border border-white/5">
+        <img alt="Solar Systems" class="absolute inset-0 w-full h-full object-cover brightness-[0.4] group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCY1Zwfwp9xua9JLa-GkFjxSSglzZfOu0VXMVsTe6zEu9YTtSnUwsJBP9KHLe892VKJ2ifzjw2Vmyuwt9ELJff2J_ntacYw9nxK0LH7h2oRrSpmv90dIUuHIFO90HXrLRq0yDcvj0NateKCviNGxFaDiKb2FE-_UrMVnWuN4xWNwau5SZGV-b8MLZ4PIDbqIZRYvqYeeT1QJMUkhP9JDeZya9Omw1tlS9XXlqEuc6w6uvcur_RPvf0vtatgXydKfZb5loAwQJHtdOs"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+        <div class="absolute bottom-8 left-8 right-8"><h4 class="leading-tight mb-2 text-lg">Solar<br/>Systems</h4><div class="w-0 group-hover:w-12 h-1 bg-primary transition-all duration-300"></div></div>
+      </div>
+      <div class="relative aspect-[3/4] overflow-hidden rounded-kinetic group cursor-pointer border border-white/5">
+        <img alt="Commercial" class="absolute inset-0 w-full h-full object-cover brightness-[0.4] group-hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqKuDCiZod9GlL7I4JPGnB_bJk0WSrdbWyZ2Rv-W7bRQ5TC9CX_vQxZBKmDxH_WWHgXQyBkRcqbAEBiLLYQza1dTgVe2b9qbo5nT_ETak04D7sk8rHWuPG-JdFR2BMRCCWyd28dxuur3Dqvf9JzNimYd-YInzAk8oAJpBj12bdO1Us7N6tqRTZKMzFE-x550tg3wrfbDUsG7ugCZaA9-NB0utx9vFekVvODknQGAbYH9fwvLYH6aakt3W7l9QAw445XjlnTHWxW5A"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+        <div class="absolute bottom-8 left-8 right-8"><h4 class="leading-tight mb-2 text-lg">Commercial</h4><div class="w-0 group-hover:w-12 h-1 bg-primary transition-all duration-300"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Comparison ── -->
+<section class="py-32 px-8 lg:px-24 relative with-grid">
+  <div class="grid-overlay"></div>
+  <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto reveal">
+    <div class="p-12 rounded-kinetic bg-surface-container-low border border-white/5 relative group">
+      <div class="flex items-center gap-3 text-on-surface-variant mb-8"><span class="material-symbols-outlined">block</span><span class="text-xs font-bold tracking-widest font-body">THE LEGACY WAY</span></div>
+      <h3 class="text-2xl md:text-3xl font-black tracking-tight leading-tight mb-8">Fragmented. Manual. Complex.</h3>
+      <ul class="space-y-5 font-medium text-on-surface-variant font-body">
+        <li class="flex items-center gap-4"><span class="w-1 h-1 bg-on-surface-variant rounded-full"></span> Fragmented hardware suppliers</li>
+        <li class="flex items-center gap-4"><span class="w-1 h-1 bg-on-surface-variant rounded-full"></span> Manual configuration errors</li>
+        <li class="flex items-center gap-4"><span class="w-1 h-1 bg-on-surface-variant rounded-full"></span> Hidden installation costs</li>
+      </ul>
+    </div>
+    <div class="p-12 rounded-kinetic bg-surface-container-low border border-primary/30 relative group overflow-hidden shadow-2xl shadow-primary/5">
+      <div class="absolute -right-16 -top-16 w-48 h-48 bg-primary/5 rounded-full blur-3xl"></div>
+      <div class="flex items-center gap-3 text-primary mb-8"><span class="material-symbols-outlined">verified</span><span class="text-xs font-bold tracking-widest font-body">THE POWER EXPRESS WAY</span></div>
+      <h3 class="text-2xl md:text-3xl font-black tracking-tight leading-tight mb-8">Unified. Automated. Integrated.</h3>
+      <ul class="space-y-5 text-on-surface font-medium font-body">
+        <li class="flex items-center gap-4"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> One-click multi-brand ecosystem</li>
+        <li class="flex items-center gap-4"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> AI-driven system configuration</li>
+        <li class="flex items-center gap-4"><span class="material-symbols-outlined text-primary text-sm">check_circle</span> Verified partner network nodes</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ── Command Center (Cinematic) ── -->
+<section class="py-32 px-8 lg:px-24 bg-background overflow-hidden">
+  <div class="max-w-7xl mx-auto">
+    <div class="text-center mb-16 reveal">
+      <label class="text-primary font-bold tracking-[0.4em] text-[10px] mb-4 block uppercase font-body">COMMAND CENTER</label>
+      <h2 class="text-3xl md:text-5xl font-black tracking-tight mb-4">Grid Control In The<br/><span class="text-primary">Palm Of Your Hand</span></h2>
+      <p class="text-on-surface-variant max-w-xl mx-auto text-base font-body">Monitor energy flow, manage storage cycles, and monetize excess generation through our secure V2G mobile platform.</p>
+    </div>
+
+    <!-- Cinematic Card -->
+    <div id="cinematic-card" class="cinematic-card relative overflow-hidden rounded-[2rem] reveal cursor-pointer">
+      <div class="film-grain-overlay" aria-hidden="true"></div>
+      <div class="cin-grid" aria-hidden="true"></div>
+      <div class="card-sheen" aria-hidden="true"></div>
+
+      <div class="relative z-10 grid lg:grid-cols-[1fr_auto_1fr] gap-8 lg:gap-16 items-center p-8 md:p-12 lg:p-16">
+
+        <!-- Left: Copy + Feature list + App buttons -->
+        <div class="flex flex-col justify-center">
+          <div class="space-y-6 mb-10">
+            <div class="flex gap-4 items-start">
+              <span class="material-symbols-outlined text-primary mt-0.5">bolt</span>
+              <div><h4 class="text-sm font-bold mb-1">Real-Time Telemetry</h4><p class="text-xs text-on-surface-variant font-body leading-relaxed">Millisecond updates on consumption and storage performance.</p></div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <span class="material-symbols-outlined text-primary mt-0.5">security</span>
+              <div><h4 class="text-sm font-bold mb-1">Encrypted Protocols</h4><p class="text-xs text-on-surface-variant font-body leading-relaxed">Enterprise-grade AES-256 encryption for all grid communications.</p></div>
+            </div>
+            <div class="flex gap-4 items-start">
+              <span class="material-symbols-outlined text-primary mt-0.5">electric_car</span>
+              <div><h4 class="text-sm font-bold mb-1">V2G Monetization</h4><p class="text-xs text-on-surface-variant font-body leading-relaxed">Sell surplus energy back to the grid directly from your phone.</p></div>
+            </div>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-3">
+            <a href="#" class="app-btn-cinematic">
+              <svg width="18" height="22" viewBox="0 0 20 24" fill="white" xmlns="http://www.w3.org/2000/svg"><path d="M16.97 12.76c-.03-2.62 2.15-3.88 2.24-3.95-1.37-2.24-3.51-2.51-4.29-2.54-1.83-.19-3.6 1.09-4.54 1.09-.95 0-2.4-1.07-3.95-1.04-2.01.03-3.88 1.18-4.91 2.98C-.55 12.96 1.01 18.35 3.05 21.32c1 1.45 2.18 3.08 3.73 3.02 1.5-.06 2.06-.97 3.88-.97 1.8 0 2.31.97 3.88.94 1.62-.03 2.64-1.47 3.62-2.93 1.15-1.67 1.62-3.3 1.64-3.39-.04-.02-3.13-1.2-3.16-4.23zM13.57 4.18c.82-1 1.37-2.38 1.22-3.77-1.18.05-2.62.79-3.47 1.77-.75.86-1.42 2.27-1.24 3.6 1.32.1 2.67-.67 3.49-1.6z"/></svg>
+              <div><div class="text-[9px] text-white/50 uppercase tracking-widest leading-none font-body">Download on the</div><div class="text-sm font-bold text-white font-headline leading-tight">App Store</div></div>
+            </a>
+            <a href="#" class="app-btn-cinematic">
+              <svg width="18" height="20" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.5 1.5L12 12L1.5 22.5V1.5Z" fill="#32BBFF"/><path d="M15.5 8.5L12 12L15.5 15.5L19.5 13.3C20.56 12.72 20.56 11.28 19.5 10.7L15.5 8.5Z" fill="#FFD400"/><path d="M1.5 1.5L12 12L15.5 8.5L4 1.5C2.7 0.75 1.5 1.5 1.5 1.5Z" fill="#34A853"/><path d="M1.5 22.5L12 12L15.5 15.5L4 22.5C2.7 23.25 1.5 22.5 1.5 22.5Z" fill="#EA4335"/></svg>
+              <div><div class="text-[9px] text-white/50 uppercase tracking-widest leading-none font-body">Get it on</div><div class="text-sm font-bold text-white font-headline leading-tight">Google Play</div></div>
+            </a>
+          </div>
+        </div>
+
+        <!-- Center: iPhone mockup -->
+        <div class="flex justify-center">
+          <div class="relative">
+            <!-- Glow behind phone -->
+            <div class="absolute inset-0 blur-3xl bg-primary/10 rounded-full scale-75 -z-10"></div>
+            <!-- iPhone frame -->
+            <div class="iphone-cinema relative w-[220px] h-[440px] bg-[#060810] rounded-[40px] overflow-hidden">
+              <!-- Hardware buttons -->
+              <div class="absolute left-[-3px] top-[80px] w-[3px] h-[28px] bg-[#1c2030] rounded-l-full"></div>
+              <div class="absolute left-[-3px] top-[118px] w-[3px] h-[56px] bg-[#1c2030] rounded-l-full"></div>
+              <div class="absolute left-[-3px] top-[184px] w-[3px] h-[56px] bg-[#1c2030] rounded-l-full"></div>
+              <div class="absolute right-[-3px] top-[136px] w-[3px] h-[72px] bg-[#1c2030] rounded-r-full"></div>
+              <!-- Dynamic Island -->
+              <div class="absolute top-2.5 left-1/2 -translate-x-1/2 w-[80px] h-[26px] bg-black rounded-full z-20"></div>
+              <!-- App screen -->
+              <div class="w-full h-full bg-gradient-to-b from-[#081020] to-[#050c18] pt-12 px-4 pb-4 flex flex-col">
+                <div class="flex justify-between items-center mb-4">
+                  <span class="material-symbols-outlined text-primary text-lg">bolt</span>
+                  <span class="text-[8px] text-primary font-bold font-body tracking-[0.2em]">LIVE</span>
+                  <span class="material-symbols-outlined text-on-surface-variant text-lg">account_circle</span>
+                </div>
+                <div class="mb-4">
+                  <div class="text-[8px] tracking-widest text-on-surface-variant mb-0.5 font-body">GRID LOAD</div>
+                  <div class="text-2xl font-black text-primary font-headline tracking-tight">45.2 kW</div>
+                </div>
+                <div class="flex-1 bg-white/5 rounded-xl mb-3 p-3 border border-white/5">
+                  <div class="flex items-end gap-1 h-12 mb-1.5">
+                    <div class="flex-1 bg-primary rounded-t-sm opacity-60" style="height:40%"></div>
+                    <div class="flex-1 bg-primary rounded-t-sm opacity-75" style="height:65%"></div>
+                    <div class="flex-1 bg-primary rounded-t-sm" style="height:85%"></div>
+                    <div class="flex-1 bg-primary rounded-t-sm opacity-75" style="height:55%"></div>
+                    <div class="flex-1 bg-primary rounded-t-sm opacity-70" style="height:72%"></div>
+                    <div class="flex-1 bg-primary rounded-t-sm opacity-60" style="height:48%"></div>
+                  </div>
+                  <div class="text-[7px] text-center text-on-surface-variant font-bold tracking-wider font-body">EFF: 98.4%</div>
+                </div>
+                <div class="space-y-2 mb-3">
+                  <div class="bg-white/5 p-2.5 rounded-lg border border-white/5"><div class="flex justify-between text-[8px] font-bold font-body mb-1.5"><span>SOLAR</span><span class="text-primary">+12.4 kW</span></div><div class="h-1 bg-white/10 rounded-full"><div class="h-full bg-primary rounded-full" style="width:75%"></div></div></div>
+                  <div class="bg-white/5 p-2.5 rounded-lg border border-white/5"><div class="flex justify-between text-[8px] font-bold font-body mb-1.5"><span>BATTERY</span><span>82%</span></div><div class="h-1 bg-white/10 rounded-full"><div class="h-full bg-primary rounded-full" style="width:82%"></div></div></div>
+                </div>
+                <div class="grid grid-cols-2 gap-2">
+                  <button class="bg-primary text-white text-[7px] font-bold py-2 rounded-lg uppercase tracking-wider font-body">Sell Power</button>
+                  <button class="bg-white/10 text-on-surface text-[7px] font-bold py-2 rounded-lg uppercase tracking-wider font-body border border-white/5">Settings</button>
+                </div>
+              </div>
+              <!-- Home indicator -->
+              <div class="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-20 h-1 bg-white/25 rounded-full"></div>
+            </div>
+            <!-- Floating badges -->
+            <div class="absolute -right-4 top-12 flex items-center gap-2 px-3 py-2 rounded-xl bg-surface-container-low/90 backdrop-blur-xl border border-primary/20 shadow-xl shadow-black/40">
+              <span class="material-symbols-outlined text-primary text-sm">bolt</span>
+              <div><div class="text-[8px] text-on-surface-variant font-body">SYSTEM HEALTH</div><div class="text-xs font-black text-white font-headline">NOMINAL</div></div>
+            </div>
+            <div class="absolute -left-4 bottom-20 flex items-center gap-2 px-3 py-2 rounded-xl bg-surface-container-low/90 backdrop-blur-xl border border-tertiary/20 shadow-xl shadow-black/40">
+              <span class="material-symbols-outlined text-tertiary text-sm">eco</span>
+              <div><div class="text-[8px] text-on-surface-variant font-body">CARBON OFFSET</div><div class="text-xs font-black text-primary font-headline">1,240 KG</div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Live stats (desktop only) -->
+        <div class="hidden lg:flex flex-col justify-center gap-8 text-right">
+          <div>
+            <div class="text-[10px] tracking-widest text-on-surface-variant uppercase font-body mb-1">Live Grid Load</div>
+            <div class="text-4xl font-black text-primary font-headline tracking-tighter">45.2<span class="text-base font-normal text-on-surface-variant ml-1">kW</span></div>
+          </div>
+          <div class="h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
+          <div>
+            <div class="text-[10px] tracking-widest text-on-surface-variant uppercase font-body mb-1">System Efficiency</div>
+            <div class="text-4xl font-black text-white font-headline tracking-tighter">98.4<span class="text-base font-normal text-on-surface-variant ml-1">%</span></div>
+          </div>
+          <div class="h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
+          <div>
+            <div class="text-[10px] tracking-widest text-on-surface-variant uppercase font-body mb-1">Carbon Offset</div>
+            <div class="text-4xl font-black text-tertiary font-headline tracking-tighter">1,240<span class="text-base font-normal text-on-surface-variant ml-1">KG</span></div>
+          </div>
+          <div class="h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
+          <div>
+            <div class="text-[10px] tracking-widest text-on-surface-variant uppercase font-body mb-1">Protocol</div>
+            <div class="text-4xl font-black text-white font-headline tracking-tighter">V2G<span class="text-sm font-normal text-primary ml-1 align-middle">✓</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Engineering Excellence ── -->
+<section class="py-32 px-8 lg:px-24 bg-surface-container-low/20 border-y border-white/5 with-grid">
+  <div class="grid-overlay"></div>
+  <div class="max-w-7xl mx-auto text-center">
+    <h2 class="text-2xl md:text-4xl font-black tracking-tight leading-tight mb-6 reveal">Engineering Excellence</h2>
+    <p class="text-lg text-on-surface-variant max-w-3xl mx-auto mb-20 font-medium font-body reveal">A singular technical infrastructure connecting global products, intelligent configuration tools, and a certified network of energy engineers.</p>
+    <div class="grid md:grid-cols-3 gap-8 text-left reveal">
+      <div class="p-10 bg-surface-container-low rounded-kinetic border border-white/5 hover:border-primary/30 transition-all"><span class="material-symbols-outlined text-primary text-4xl mb-6">inventory_2</span><h4 class="text-lg font-bold mb-4">Tier-One Hardware</h4><p class="text-sm text-on-surface-variant font-body">Only tier-one energy hardware passes our rigorous efficiency stress tests.</p></div>
+      <div class="p-10 bg-surface-container-low rounded-kinetic border border-white/5 hover:border-primary/30 transition-all"><span class="material-symbols-outlined text-primary text-4xl mb-6">settings_input_component</span><h4 class="text-lg font-bold mb-4">AI Optimization</h4><p class="text-sm text-on-surface-variant font-body">Real-time load balancing and energy yield simulations for every design.</p></div>
+      <div class="p-10 bg-surface-container-low rounded-kinetic border border-white/5 hover:border-primary/30 transition-all"><span class="material-symbols-outlined text-primary text-4xl mb-6">handshake</span><h4 class="text-lg font-bold mb-4">Verified Network</h4><p class="text-sm text-on-surface-variant font-body">Direct access to certified installers and kinetic energy specialists worldwide.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════════════════════════════════════════════════
+     TESTIMONIALS — Profile Card Carousel
+     ═══════════════════════════════════════════════════════ -->
+<section class="py-32 bg-background overflow-hidden">
+  <div class="max-w-7xl mx-auto px-8 lg:px-24">
+    <!-- Header with carousel controls -->
+    <div class="flex justify-between items-end mb-16 reveal">
+      <div>
+        <label class="text-primary font-bold tracking-[0.4em] text-[10px] mb-4 block uppercase font-body">SUCCESS STORIES</label>
+        <h2 class="text-2xl md:text-4xl font-black tracking-tight">Operational Success</h2>
+      </div>
+      <div class="flex gap-3">
+        <button id="tc-prev" class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/5 hover:border-primary/30 transition-all text-on-surface-variant active:scale-90"><span class="material-symbols-outlined">chevron_left</span></button>
+        <button id="tc-next" class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-white/5 hover:border-primary/30 transition-all text-on-surface-variant active:scale-90"><span class="material-symbols-outlined">chevron_right</span></button>
+      </div>
+    </div>
+
+    <!-- Carousel container -->
+    <div class="reveal">
+      <div class="relative" style="min-height:320px;" id="tc-container">
+
+        <!-- Card 0 -->
+        <div class="tc-card tc-active" data-index="0">
+          <div class="flex flex-col md:flex-row gap-10 items-start">
+            <!-- Profile -->
+            <div class="flex-shrink-0">
+              <div class="relative w-24 h-24 md:w-32 md:h-32">
+                <div class="absolute inset-0 rounded-2xl border border-primary/25 rotate-6 transition-transform duration-500"></div>
+                <div class="relative w-full h-full rounded-2xl overflow-hidden border border-white/10 shadow-xl shadow-black/40">
+                  <img alt="Marcus Thorne" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAJgZu5Kw7qTKobAsqPiJmp5-SgftXJWb3uFOdsAWJFra0jJOYO7SGWPCmiCHAbwmUtYqoAby6zAhc2VROROX3fWT9a9H5Nwxjnvf6QDZ_jxA0aWdO1WyeHdPWo6ol315_vJR6e0jZlZQTtU5Efz-N3x8WT9cZwKN1ShDLrruCOKic28k9XDGEj8tKR9qpwO-gvPsfFGvVAdQwcjV0_DFv1-LXlpDVzbzpJLFX9CTiOUaWkNPTzIiJgEpZrCaeGWbFN1fwSR-BMORo"/>
+                </div>
+                <div class="absolute -bottom-3 -right-3 w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/30">
+                  <span class="material-symbols-outlined text-white text-[16px]" style="font-variation-settings:'FILL' 1;">format_quote</span>
+                </div>
+              </div>
+              <!-- Rating stars -->
+              <div class="flex gap-0.5 mt-5 justify-center">
+                <span class="text-primary text-xs">★★★★★</span>
+              </div>
+            </div>
+            <!-- Content -->
+            <div class="flex-1">
+              <div class="text-primary/20 font-headline text-7xl font-black leading-none mb-1 select-none">"</div>
+              <p class="text-lg font-medium italic text-on-surface-variant leading-relaxed mb-8 font-body">"PowerXpress transformed our warehouse's energy profile. We achieved full independence within 3 months of installation. The reliability is unmatched."</p>
+              <div class="h-px bg-gradient-to-r from-primary/40 via-primary/10 to-transparent w-32 mb-5"></div>
+              <div class="text-base font-black tracking-wide font-headline">Marcus Thorne</div>
+              <div class="text-[11px] uppercase tracking-[0.2em] text-on-surface-variant/60 mt-1 font-body">Director of Logistics, Zenith Corp</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 1 -->
+        <div class="tc-card" data-index="1">
+          <div class="flex flex-col md:flex-row gap-10 items-start">
+            <div class="flex-shrink-0">
+              <div class="relative w-24 h-24 md:w-32 md:h-32">
+                <div class="absolute inset-0 rounded-2xl border border-primary/25 rotate-6"></div>
+                <div class="relative w-full h-full rounded-2xl overflow-hidden border border-white/10 shadow-xl shadow-black/40">
+                  <img alt="Sarah Chen" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7USpJf6Euli38V9l5TfqzmEHVZPDzlIkqyo8I4SKZO8ZCJseQOpE6h-bgb51Ux6nN5iTU-OgbOW8l7CTW-8qKGjqSJOP6oLAWZrCyyr8YCmJwrzw_pDdIsyahEs53wPg7lkfd8pTMXOVSvGrF8fs708mwYZm-wMmgLBTPgZ_FnW5A2oQ0c220FrMPCM41wU9pPK1CeJpSSR0wMTRry-ImDERDtzZ08Z2Vf1u9pj0Z4x0d_OuQNJW_MMnbJ6ok7oRVql5JtVOF1Ro"/>
+                </div>
+                <div class="absolute -bottom-3 -right-3 w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/30">
+                  <span class="material-symbols-outlined text-white text-[16px]" style="font-variation-settings:'FILL' 1;">format_quote</span>
+                </div>
+              </div>
+              <div class="flex gap-0.5 mt-5 justify-center"><span class="text-primary text-xs">★★★★★</span></div>
+            </div>
+            <div class="flex-1">
+              <div class="text-primary/20 font-headline text-7xl font-black leading-none mb-1 select-none">"</div>
+              <p class="text-lg font-medium italic text-on-surface-variant leading-relaxed mb-8 font-body">"The integration was seamless. We didn't even notice the switch to the kinetic backup grid during the last city-wide blackout. Highly recommended."</p>
+              <div class="h-px bg-gradient-to-r from-primary/40 via-primary/10 to-transparent w-32 mb-5"></div>
+              <div class="text-base font-black tracking-wide font-headline">Sarah Chen</div>
+              <div class="text-[11px] uppercase tracking-[0.2em] text-on-surface-variant/60 mt-1 font-body">Chief Systems Engineer, EcoGrid</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="tc-card" data-index="2">
+          <div class="flex flex-col md:flex-row gap-10 items-start">
+            <div class="flex-shrink-0">
+              <div class="relative w-24 h-24 md:w-32 md:h-32">
+                <div class="absolute inset-0 rounded-2xl border border-primary/25 rotate-6"></div>
+                <div class="relative w-full h-full rounded-2xl overflow-hidden border border-white/10 shadow-xl shadow-black/40">
+                  <img alt="David Miller" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdgEcowiOwEtAirORXPfdPtQKejuGhMeIifJd3ycwVuqCE6MJQYuKnaaqF7OPMENQrCm7exxrsyxjPBlq4LbaQ7l9j4RXoB_13vBKKHUkcRIOcNfeR3G-KO2sfe83EeFFqG8HCXp9SgHu-adSzCiiJDPoEwEsKh16q2CD5xlYsAwID4Ft_pPfaI7M2QqXQ6ebZ3pGeR-luUYDisnX5p5VYXSREWDnlT2xBMxg3nwIXEv1s79iZJkaNNjdgvFNKYS-m3894QooXqqc"/>
+                </div>
+                <div class="absolute -bottom-3 -right-3 w-8 h-8 rounded-full bg-primary flex items-center justify-center shadow-lg shadow-primary/30">
+                  <span class="material-symbols-outlined text-white text-[16px]" style="font-variation-settings:'FILL' 1;">format_quote</span>
+                </div>
+              </div>
+              <div class="flex gap-0.5 mt-5 justify-center"><span class="text-primary text-xs">★★★★★</span></div>
+            </div>
+            <div class="flex-1">
+              <div class="text-primary/20 font-headline text-7xl font-black leading-none mb-1 select-none">"</div>
+              <p class="text-lg font-medium italic text-on-surface-variant leading-relaxed mb-8 font-body">"From installation to daily usage, the mobile app is incredible. Being able to sell power back to the grid has completely offset our energy costs."</p>
+              <div class="h-px bg-gradient-to-r from-primary/40 via-primary/10 to-transparent w-32 mb-5"></div>
+              <div class="text-base font-black tracking-wide font-headline">David Miller</div>
+              <div class="text-[11px] uppercase tracking-[0.2em] text-on-surface-variant/60 mt-1 font-body">Homeowner &amp; EV Early Adopter</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- Dot indicators -->
+      <div class="flex gap-2 mt-10">
+        <div class="tc-dot active" data-to="0"></div>
+        <div class="tc-dot" data-to="1"></div>
+        <div class="tc-dot" data-to="2"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Kinetic Integration Flow ── -->
+<section class="py-32 px-8 lg:px-24 overflow-hidden with-grid">
+  <div class="grid-overlay"></div>
+  <div class="max-w-7xl mx-auto mb-20 flex flex-col items-center text-center reveal">
+    <label class="text-primary font-bold tracking-[0.4em] text-[10px] mb-4 block uppercase font-body">DEPLOYMENT PATH</label>
+    <h2 class="text-2xl md:text-4xl font-black tracking-tight leading-tight">Kinetic Integration Flow</h2>
+  </div>
+  <div class="max-w-7xl mx-auto relative pt-12 reveal">
+    <div class="absolute top-0 left-0 right-0 h-[2px] bg-white/5 hidden md:block"><div class="absolute top-0 left-0 h-full w-1/4 timeline-connector"></div></div>
+    <div class="grid md:grid-cols-4 gap-8">
+      <div class="relative pt-8 group"><div class="absolute top-[-9px] left-0 w-4 h-4 rounded-full bg-background border-2 border-primary z-10 hidden md:block group-hover:shadow-[0_0_10px_#0098F1] transition-all"></div><div class="bg-surface-container-low p-8 rounded-kinetic border border-white/5 hover:border-primary/20 transition-all h-full"><div class="text-4xl font-black text-white/5 mb-4 font-headline">01</div><h5 class="text-base font-bold tracking-wider mb-4 text-primary">Select</h5><p class="text-sm text-on-surface-variant font-body">Choose base infrastructure from our multi-brand catalogue of high-density nodes.</p></div></div>
+      <div class="relative pt-8 group"><div class="absolute top-[-9px] left-0 w-4 h-4 rounded-full bg-background border-2 border-primary/50 z-10 hidden md:block group-hover:shadow-[0_0_10px_#0098F1] transition-all"></div><div class="bg-surface-container-low p-8 rounded-kinetic border border-white/5 hover:border-primary/20 transition-all h-full"><div class="text-4xl font-black text-white/5 mb-4 font-headline">02</div><h5 class="text-base font-bold tracking-wider mb-4 text-on-surface">Configure</h5><p class="text-sm text-on-surface-variant font-body">Fine-tune system parameters and storage capacities in our 3D workspace.</p></div></div>
+      <div class="relative pt-8 group"><div class="absolute top-[-9px] left-0 w-4 h-4 rounded-full bg-background border-2 border-primary/30 z-10 hidden md:block"></div><div class="bg-surface-container-low p-8 rounded-kinetic border border-white/5 hover:border-primary/20 transition-all h-full"><div class="text-4xl font-black text-white/5 mb-4 font-headline">03</div><h5 class="text-base font-bold tracking-wider mb-4 text-on-surface">Purchase</h5><p class="text-sm text-on-surface-variant font-body">Secure unified financing and logistics with one streamlined checkout flow.</p></div></div>
+      <div class="relative pt-8 group"><div class="absolute top-[-9px] left-0 w-4 h-4 rounded-full bg-background border-2 border-primary/30 z-10 hidden md:block"></div><div class="bg-surface-container-low p-8 rounded-kinetic border border-white/5 hover:border-primary/20 transition-all h-full"><div class="text-4xl font-black text-white/5 mb-4 font-headline">04</div><h5 class="text-base font-bold tracking-wider mb-4 text-on-surface">Install</h5><p class="text-sm text-on-surface-variant font-body">Auto-dispatch verified installers to your site for hyper-fast deployment.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Partners Breakdown ── -->
+<section class="py-32 px-8 lg:px-24">
+  <div class="grid grid-cols-1 md:grid-cols-12 gap-6 max-w-7xl mx-auto reveal">
+    <div class="md:col-span-7 bg-surface-container-low rounded-kinetic p-12 relative overflow-hidden group min-h-[400px] flex flex-col justify-end border border-white/5">
+      <img alt="Installer" class="absolute inset-0 w-full h-full object-cover opacity-20 transition-all duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAqKuDCiZod9GlL7I4JPGnB_bJk0WSrdbWyZ2Rv-W7bRQ5TC9CX_vQxZBKmDxH_WWHgXQyBkRcqbAEBiLLYQza1dTgVe2b9qbo5nT_ETak04D7sk8rHWuPG-JdFR2BMRCCWyd28dxuur3Dqvf9JzNimYd-YInzAk8oAJpBj12bdO1Us7N6tqRTZKMzFE-x550tg3wrfbDUsG7ugCZaA9-NB0utx9vFekVvODknQGAbYH9fwvLYH6aakt3W7l9QAw445XjlnTHWxW5A"/>
+      <div class="relative z-10"><h4 class="text-2xl font-black mb-4">Installers</h4><p class="text-lg text-on-surface-variant max-w-md font-body">Access professional design software, bulk hardware pricing, and project management tools.</p></div>
+    </div>
+    <div class="md:col-span-5 flex flex-col gap-6">
+      <div class="flex-1 bg-surface-container-low border border-white/5 rounded-kinetic p-8 hover:border-primary/30 transition-all group"><h4 class="text-xl font-black mb-2 group-hover:text-primary transition-colors">Retail Partners</h4><p class="text-sm text-on-surface-variant font-body">Scalable inventory management for large-scale energy retailers and vendors.</p></div>
+      <div class="flex-1 bg-primary text-white rounded-kinetic p-8 hover:brightness-110 transition-all group active:scale-95 cursor-pointer"><h4 class="text-xl font-black mb-2">Agents &amp; Brokers</h4><p class="text-white/80 text-sm font-semibold font-body">Commission-based portal for managing energy transitions for commercial portfolios.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Hardware Core ── -->
+<section class="py-32 px-8 lg:px-24 bg-surface-container-low/10 with-grid">
+  <div class="grid-overlay"></div>
+  <div class="text-center mb-20 reveal"><h2 class="text-2xl md:text-4xl font-black tracking-tight mb-4">The Hardware Core</h2><div class="w-20 h-1.5 bg-primary mx-auto rounded-full"></div></div>
+  <div class="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto reveal">
+    <div class="glass-panel rounded-kinetic p-4 group transition-all duration-500 hover:-translate-y-2"><div class="aspect-square rounded-kinetic overflow-hidden mb-8"><img alt="Solar Panels" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCY1Zwfwp9xua9JLa-GkFjxSSglzZfOu0VXMVsTe6zEu9YTtSnUwsJBP9KHLe892VKJ2ifzjw2Vmyuwt9ELJff2J_ntacYw9nxK0LH7h2oRrSpmv90dIUuHIFO90HXrLRq0yDcvj0NateKCviNGxFaDiKb2FE-_UrMVnWuN4xWNwau5SZGV-b8MLZ4PIDbqIZRYvqYeeT1QJMUkhP9JDeZya9Omw1tlS9XXlqEuc6w6uvcur_RPvf0vtatgXydKfZb5loAwQJHtdOs"/></div><div class="px-4 pb-4"><span class="text-primary text-[10px] font-bold tracking-[0.2em] block mb-3 uppercase font-body">Solar Generation</span><h4 class="mb-4 text-lg">Elite Photovoltaic Array</h4><p class="text-sm text-on-surface-variant mb-6 font-body">Proprietary cell technology delivering up to 24.2% conversion efficiency in low-light environments.</p><button class="text-primary font-bold text-xs tracking-widest flex items-center gap-2 hover:gap-4 transition-all uppercase font-body">Explore Specs <span class="material-symbols-outlined text-sm">east</span></button></div></div>
+    <div class="glass-panel rounded-kinetic p-4 group transition-all duration-500 hover:-translate-y-2"><div class="aspect-square rounded-kinetic overflow-hidden mb-8"><img alt="Battery Storage" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_chmonVTHuIYkp-E14LKjSsmBWdVCXsPAcFzP-azdVB8aCOnXpvn64nOoX9cdarZ6JYe01BozSIZYkcVZg1zB8N__LpPH53r_dSjThQHgxSRan9gFAVDv_eiWi8GpXQnIlyNdtzGzH_3ml7fsDtvqeSirZTS7ZERYG8NjjvGHYwrvCNGRcRvkExWBRSFVwmjrPYKQzNebtqG56T88mKoNE4G3ECuo6LSbce9WAam8WopaerZH69XO5PsiI9SVN0wWcGQ1dpQK3Oc"/></div><div class="px-4 pb-4"><span class="text-primary text-[10px] font-bold tracking-[0.2em] block mb-3 uppercase font-body">Energy Storage</span><h4 class="mb-4 text-lg">Kinetic Obsidian Node</h4><p class="text-sm text-on-surface-variant mb-6 font-body">Stackable lithium-iron-phosphate modules with millisecond-fast grid disconnection protection.</p><button class="text-primary font-bold text-xs tracking-widest flex items-center gap-2 hover:gap-4 transition-all uppercase font-body">Explore Specs <span class="material-symbols-outlined text-sm">east</span></button></div></div>
+    <div class="glass-panel rounded-kinetic p-4 group transition-all duration-500 hover:-translate-y-2"><div class="aspect-square rounded-kinetic overflow-hidden mb-8"><img alt="EV Charger" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCg7AeTKM-sVOrn84UUtPE9TEjjAGPjEuO57AHlF457LHq3w4rTWfNCtP_FAoJPWx51kKsFecnhCr3jpPjpELWsc2dwNUG7XYxi80Zqt8vU-1RKe1FZuIUr-megB7unTkF0ktXcA6ERsuDRYS8pl2p_ajm0qJ9N7-Yg8YJ4OQmLUUJ_ys-JNfwvrtuuhCbyEZyzRv7tBjCz5wxrhLq8Qz7k-OyPg6eA90v7ODRAap5lkgW0Jlm1ulfYwBYMQ3cL0D9ibB3kY_EZ1to"/></div><div class="px-4 pb-4"><span class="text-primary text-[10px] font-bold tracking-[0.2em] block mb-3 uppercase font-body">EV Mobility</span><h4 class="mb-4 text-lg">Hypercharge V2G Station</h4><p class="text-sm text-on-surface-variant mb-6 font-body">Dual-nozzle liquid-cooled charging station capable of up to 400kW sustained power output.</p><button class="text-primary font-bold text-xs tracking-widest flex items-center gap-2 hover:gap-4 transition-all uppercase font-body">Explore Specs <span class="material-symbols-outlined text-sm">east</span></button></div></div>
+  </div>
+</section>
+
+<!-- ── Architect Your Grid ── -->
+<section class="py-32 px-8 lg:px-24">
+  <div class="max-w-7xl mx-auto glass-panel rounded-kinetic p-12 lg:p-20 relative overflow-hidden flex flex-col lg:flex-row items-center gap-20 reveal">
+    <div class="z-10 flex-1">
+      <h2 class="text-2xl md:text-4xl font-black tracking-tight leading-tight mb-8">Architect Your Grid.</h2>
+      <p class="text-lg text-on-surface-variant mb-12 font-medium leading-relaxed font-body">Our smart configurator allows you to visualize and simulate your entire energy infrastructure before a single panel is ordered. Precise, data-backed, and fully integrated.</p>
+      <div class="space-y-8 mb-12">
+        <div class="flex items-center gap-5 group"><div class="w-12 h-12 rounded-kinetic bg-primary/10 border border-primary/20 flex items-center justify-center transition-all group-hover:bg-primary/20"><span class="material-symbols-outlined text-primary">polyline</span></div><span class="text-sm font-bold tracking-wide font-body">Real-Time Topographic Yield Analysis</span></div>
+        <div class="flex items-center gap-5 group"><div class="w-12 h-12 rounded-kinetic bg-primary/10 border border-primary/20 flex items-center justify-center transition-all group-hover:bg-primary/20"><span class="material-symbols-outlined text-primary">view_in_ar</span></div><span class="text-sm font-bold tracking-wide font-body">Dynamic 3D Component Interaction</span></div>
+      </div>
+      <a href="../system_builder/code.html" class="btn-kinetic btn-kinetic-primary px-10 py-5">Launch System Designer</a>
+    </div>
+    <div class="flex-1 relative w-full aspect-square md:aspect-video lg:aspect-square bg-background rounded-kinetic border border-white/5 overflow-hidden shadow-inner">
+      <img alt="Holographic interface preview" class="w-full h-full object-cover opacity-80 brightness-110 contrast-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPcbR4hkSwTDXx5S0zqwt0baSKZFA-JGlkD-z5n3AJVrrzPD1AD-hWrVIR5LzoZ6Jw0FpS6F3WfhFQfhpFIN8aqkgNvz5EtCZ_CCiN077T3lO00ezag0SO-jd1GRei-vZKbQIsYWWm_2NbZr4-Gq3D5oNg2kkQFTJdPGw9VF9gRCoPykTEDS9DMPZ4zEDAVyVR7k-t1d-wZp4zNEw9fdMd9wZEIH5we-4ZGiLJZ2LMhCnSCOgT2OV35_6zT_N9ztPCiFcDsQymjl4"/>
+      <div class="absolute inset-0 pointer-events-none border border-primary/5"></div>
+      <div class="absolute top-6 left-6 px-3 py-1 bg-background/80 backdrop-blur border border-primary/30 text-primary text-[9px] font-bold tracking-[0.2em] uppercase font-body">SYSTEM STABILITY: 100%</div>
+      <div class="absolute bottom-6 right-6 px-3 py-1 bg-background/80 backdrop-blur border border-white/10 text-white text-[9px] font-bold tracking-[0.2em] uppercase font-body">YIELD: 1.4MW/YEAR</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Stats ── -->
+<section class="py-24 px-8 lg:px-24 bg-surface-container-low/10 with-grid reveal">
+  <div class="grid-overlay"></div>
+  <div class="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
+    <div><div class="text-5xl md:text-6xl font-black mb-3 tracking-tighter text-on-surface font-headline">1.2GW</div><div class="text-[10px] font-bold tracking-[0.4em] text-primary uppercase font-body">Energy Managed</div></div>
+    <div><div class="text-5xl md:text-6xl font-black mb-3 tracking-tighter text-on-surface font-headline">12K+</div><div class="text-[10px] font-bold tracking-[0.4em] text-primary uppercase font-body">Active Nodes</div></div>
+    <div><div class="text-5xl md:text-6xl font-black mb-3 tracking-tighter text-on-surface font-headline">99.9%</div><div class="text-[10px] font-bold tracking-[0.4em] text-primary uppercase font-body">System Uptime</div></div>
+    <div><div class="text-5xl md:text-6xl font-black mb-3 tracking-tighter text-on-surface font-headline">24H</div><div class="text-[10px] font-bold tracking-[0.4em] text-primary uppercase font-body">Response Time</div></div>
+  </div>
+</section>
+
+<!-- ── Final CTA ── -->
+<section class="py-48 px-8 lg:px-24 text-center relative overflow-hidden bg-background border-t border-white/5 with-grid">
+  <div class="grid-overlay" style="opacity:0.6;"></div>
+  <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,152,241,0.06)_0%,transparent_70%)]"></div>
+  <div class="relative z-10 max-w-4xl mx-auto reveal">
+    <label class="text-primary font-bold tracking-[0.5em] text-[10px] mb-8 block uppercase font-body">The Final Step</label>
+    <h1 class="text-4xl md:text-7xl font-black tracking-tight leading-tight mb-12">Begin The <span class="text-primary">Switch.</span></h1>
+    <div class="flex justify-center gap-6 flex-wrap">
+      <button class="btn-kinetic btn-kinetic-primary px-12 py-5 text-sm">Get Started Now</button>
+      <button class="btn-kinetic btn-kinetic-outline px-12 py-5 text-sm">Contact Sales</button>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════════════════════════ UNIFIED FOOTER ═══════════════════════════════ -->
+<footer class="bg-[#0F1A2B] w-full pt-24 pb-12 font-body">
+  <div class="max-w-7xl mx-auto px-8 grid grid-cols-2 md:grid-cols-4 gap-12 text-sm leading-relaxed">
+    <div class="col-span-2 md:col-span-1 space-y-6">
+      <img alt="PowerXpress" class="h-8 w-auto brightness-0 invert" src="https://lh3.googleusercontent.com/aida/ADBb0ug-lxE44XHwJBbLVEwP7fHTaucksv5QbYGbxkELyCixWL8QtZ4Ebjy6M53ysh7XsFQQUpi836YnSuGTnYsGOwltGktg0hQpI-tLol4yCgYuUcWju3PhruJpboMmPI7jSnYBl-YeKJOK-1rrl1knR7AuD0juDFmVj8sVSZokAMiBSZM9yGrOO0WsXQeq3CzsGnaqTFywW_xUMxLRzwKAaP1L2WCBuFNYURRW3ZXDIEK2iEa78b6HDPm9Dyzh5puFgvqSYKg3hce7d7Q"/>
+      <p class="text-slate-500 opacity-80">Empowering the next generation of energy independence through kinetic innovation and storage excellence.</p>
+      <p class="text-xs uppercase tracking-widest text-slate-500/60 font-headline">© 2024 PowerXpress. Kinetic Monolith Systems.</p>
+    </div>
+    <div class="space-y-4">
+      <h4 class="font-headline font-bold text-white uppercase tracking-wider text-xs">Solutions</h4>
+      <nav class="flex flex-col gap-2">
+        <a class="text-slate-500 hover:text-sky-400 transition-colors opacity-80 hover:opacity-100" href="#">Solar Panels</a>
+        <a class="text-slate-500 hover:text-sky-400 transition-colors opacity-80 hover:opacity-100" href="#">Battery Hub</a>
+        <a class="text-slate-500 hover:text-sky-400 transition-colors opacity-80 hover:opacity-100" href="#">EV Charging</a>
+      </nav>
+    </div>
+    <div class="space-y-4">
+      <h4 class="font-headline font-bold text-white uppercase tracking-wider text-xs">Company</h4>
+      <nav class="flex flex-col gap-2">
+        <a class="text-slate-500 hover:text-sky-400 transition-colors opacity-80 hover:opacity-100" href="#">About Us</a>
+        <a class="text-slate-500 hover:text-sky-400 transition-colors opacity-80 hover:opacity-100" href="#">Careers</a>
+        <a class="text-slate-500 hover:text-sky-400 transition-colors opacity-80 hover:opacity-100" href="#">Contact</a>
+      </nav>
+    </div>
+    <div class="space-y-4">
+      <h4 class="font-headline font-bold text-white uppercase tracking-wider text-xs">Legal &amp; Support</h4>
+      <nav class="flex flex-col gap-2">
+        <a class="text-slate-500 hover:text-sky-400 transition-colors opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+        <a class="text-slate-500 hover:text-sky-400 transition-colors opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+        <a class="text-sky-400 hover:text-sky-300 transition-colors text-xs font-bold" href="#"><span class="inline-block w-2 h-2 rounded-full bg-emerald-500 mr-1.5 shadow-[0_0_6px_rgba(16,185,129,0.6)]"></span>System Status: Operational</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ════════════════════════════════════════════════════
+   1. INFINITE GRID — mouse-follow spotlight
+   ════════════════════════════════════════════════════ */
+document.querySelectorAll('.with-grid').forEach(section => {
+  const overlay = section.querySelector('.grid-overlay');
+  if (!overlay) return;
+  section.addEventListener('mousemove', (e) => {
+    const r = section.getBoundingClientRect();
+    const x = ((e.clientX - r.left) / r.width * 100).toFixed(1);
+    const y = ((e.clientY - r.top) / r.height * 100).toFixed(1);
+    const mask = `radial-gradient(ellipse 40% 50% at ${x}% ${y}%, transparent 0%, black 40%, black 100%)`;
+    overlay.style.maskImage = mask;
+    overlay.style.webkitMaskImage = mask;
+  }, { passive: true });
+  section.addEventListener('mouseleave', () => {
+    overlay.style.maskImage = '';
+    overlay.style.webkitMaskImage = '';
+  }, { passive: true });
+});
+
+/* ════════════════════════════════════════════════════
+   2. CINEMATIC CARD — mouse sheen
+   ════════════════════════════════════════════════════ */
+(function() {
+  const card = document.getElementById('cinematic-card');
+  if (!card) return;
+  card.addEventListener('mousemove', (e) => {
+    const r = card.getBoundingClientRect();
+    card.style.setProperty('--sheen-x', ((e.clientX - r.left) / r.width * 100).toFixed(1) + '%');
+    card.style.setProperty('--sheen-y', ((e.clientY - r.top) / r.height * 100).toFixed(1) + '%');
+  }, { passive: true });
+  card.addEventListener('mouseleave', () => {
+    card.style.setProperty('--sheen-x', '120%');
+    card.style.setProperty('--sheen-y', '50%');
+  }, { passive: true });
+})();
+
+/* ════════════════════════════════════════════════════
+   3. TESTIMONIAL CAROUSEL
+   ════════════════════════════════════════════════════ */
+(function initCarousel() {
+  const cards = document.querySelectorAll('.tc-card');
+  const dots  = document.querySelectorAll('.tc-dot');
+  let current = 0;
+  let timer;
+
+  function setHeight() {
+    const container = document.getElementById('tc-container');
+    if (!container) return;
+    // Make active card's height drive container height
+    const active = container.querySelector('.tc-card.tc-active');
+    if (active) container.style.minHeight = active.scrollHeight + 'px';
+  }
+
+  function goTo(index) {
+    if (index === current) return;
+    // Exit current
+    cards[current].classList.add('tc-exit');
+    cards[current].classList.remove('tc-active');
+    const exiting = cards[current];
+    setTimeout(() => exiting.classList.remove('tc-exit'), 600);
+    // Enter new
+    current = ((index % cards.length) + cards.length) % cards.length;
+    cards[current].classList.add('tc-active');
+    // Update dots
+    dots.forEach((d, i) => {
+      d.classList.toggle('active', i === current);
+    });
+    setTimeout(setHeight, 50);
+  }
+
+  function startTimer() {
+    clearInterval(timer);
+    timer = setInterval(() => goTo(current + 1), 5500);
+  }
+
+  document.getElementById('tc-prev')?.addEventListener('click', () => { goTo(current - 1); startTimer(); });
+  document.getElementById('tc-next')?.addEventListener('click', () => { goTo(current + 1); startTimer(); });
+  dots.forEach(dot => dot.addEventListener('click', () => { goTo(+dot.dataset.to); startTimer(); }));
+
+  setTimeout(setHeight, 100);
+  window.addEventListener('resize', setHeight, { passive: true });
+  startTimer();
+})();
+
+/* ════════════════════════════════════════════════════
+   4. SCROLL REVEAL + NAV OPACITY
+   ════════════════════════════════════════════════════ */
+const revealObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
+
+window.addEventListener('scroll', () => {
+  const inner = document.querySelector('#main-nav > div');
+  if (inner) inner.style.background = window.scrollY > 60 ? 'rgba(10,18,35,0.88)' : '';
+}, { passive: true });
+</script>
+</body>
+</html>

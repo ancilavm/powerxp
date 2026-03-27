@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Power Express | Solar Inverters Catalogue</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<!-- Fonts: Orbitron (headlines) · Space Grotesk (body) -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary": "#0098F1",
+        "on-primary": "#ffffff",
+        "primary-container": "#004a78",
+        "primary-fixed-dim": "#5BBBF7",
+        "surface": "#081020",
+        "surface-container-lowest": "#050c18",
+        "surface-container-low": "#0F1A2B",
+        "surface-container": "#142033",
+        "surface-container-high": "#1A2840",
+        "surface-container-highest": "#1A263A",
+        "background": "#081020",
+        "on-surface": "#e1e2e8",
+        "on-surface-variant": "#c1c7ce",
+        "outline": "#8b9198",
+        "outline-variant": "#41484d",
+        "secondary": "#97cbff",
+        "tertiary": "#76f9ea",
+        "surface-variant": "#41484d",
+      },
+      fontFamily: {
+        "headline": ["Orbitron", "sans-serif"],
+        "body": ["Space Grotesk", "sans-serif"],
+        "label": ["Space Grotesk", "sans-serif"],
+        "sans": ["Space Grotesk", "sans-serif"],
+      },
+      borderRadius: {
+        "DEFAULT": "0.75rem", "sm": "0.375rem", "md": "0.5rem",
+        "lg": "0.75rem", "xl": "1rem", "2xl": "1.5rem",
+        "full": "9999px",
+      },
+    },
+  },
+}
+</script>
+<style>
+h1, h2, h3, h4 { font-family: 'Orbitron', sans-serif !important; }
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+.glass-panel { background: rgba(15,26,43,0.7); backdrop-filter: blur(20px); }
+.grid-bg { background-image: radial-gradient(circle at 2px 2px,rgba(0,152,241,0.05) 1px,transparent 0); background-size:40px 40px; }
+.glow-card:hover { box-shadow:0 0 20px rgba(0,152,241,0.15); border-color:rgba(0,152,241,0.3); }
+body { font-family:'Space Grotesk',sans-serif; }
+.nav-dropdown { opacity:0; visibility:hidden; transform:translateY(8px); transition:all 0.2s ease; }
+.nav-trigger:hover .nav-dropdown, .nav-trigger:focus-within .nav-dropdown { opacity:1; visibility:visible; transform:translateY(0); }
+.reveal { opacity:0; transform:translateY(24px); transition:opacity 0.7s ease,transform 0.7s ease; }
+.reveal.visible { opacity:1; transform:none; }
+</style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30 selection:text-white flex flex-col min-h-screen">
+
+<!-- ═══════════════════════════════ UNIFIED NAVBAR ═══════════════════════════════ -->
+<header class="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 pt-6" id="main-nav">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-3 bg-slate-900/60 backdrop-blur-3xl rounded-full border border-white/10 shadow-[0px_24px_48px_-12px_rgba(0,152,241,0.15)] transition-all duration-300">
+    <a href="../home/code.html" class="h-8 flex items-center flex-shrink-0">
+      <img alt="PowerXpress" class="h-8 w-auto brightness-0 invert" src="https://lh3.googleusercontent.com/aida/ADBb0ug-lxE44XHwJBbLVEwP7fHTaucksv5QbYGbxkELyCixWL8QtZ4Ebjy6M53ysh7XsFQQUpi836YnSuGTnYsGOwltGktg0hQpI-tLol4yCgYuUcWju3PhruJpboMmPI7jSnYBl-YeKJOK-1rrl1knR7AuD0juDFmVj8sVSZokAMiBSZM9yGrOO0WsXQeq3CzsGnaqTFywW_xUMxLRzwKAaP1L2WCBuFNYURRW3ZXDIEK2iEa78b6HDPm9Dyzh5puFgvqSYKg3hce7d7Q"/>
+    </a>
+    <nav class="hidden md:flex items-center gap-1 font-headline tracking-tight text-sm uppercase">
+      <a class="text-slate-400 hover:text-sky-200 hover:bg-white/5 px-4 py-2 rounded-full transition-all" href="../home/code.html">Home</a>
+      <a class="text-slate-400 hover:text-sky-200 hover:bg-white/5 px-4 py-2 rounded-full transition-all" href="../solution/code.html">Solutions</a>
+      <div class="nav-trigger relative">
+        <button class="text-sky-400 font-bold bg-white/5 flex items-center gap-0.5 px-4 py-2 rounded-full transition-all">Products <span class="material-symbols-outlined text-[18px] mt-0.5">expand_more</span></button>
+        <div class="nav-dropdown absolute top-full left-1/2 -translate-x-1/2 mt-3 w-52 bg-surface-container-low/95 backdrop-blur-xl rounded-xl border border-white/10 shadow-2xl shadow-black/50 overflow-hidden">
+          <a class="block px-5 py-3 text-sky-400 font-medium hover:bg-white/5 transition-colors text-xs tracking-wide" href="code.html">Product Catalogue</a>
+          <a class="block px-5 py-3 text-slate-400 hover:text-sky-200 hover:bg-white/5 transition-colors text-xs tracking-wide" href="../product_detailed/code.html">Product Details</a>
+        </div>
+      </div>
+      <a class="text-slate-400 hover:text-sky-200 hover:bg-white/5 px-4 py-2 rounded-full transition-all" href="../system_builder/code.html">System Builder</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button class="material-symbols-outlined text-slate-400 hover:text-sky-200 p-2 hover:bg-white/5 rounded-full transition-all active:scale-90">notifications</button>
+      <button class="material-symbols-outlined text-slate-400 hover:text-sky-200 p-2 hover:bg-white/5 rounded-full transition-all active:scale-90">settings</button>
+      <a href="../system_builder/code.html" class="ml-1 bg-primary text-on-primary px-5 py-2 rounded-full font-bold text-xs uppercase tracking-wider hover:shadow-[0_0_20px_rgba(0,152,241,0.4)] active:scale-90 transition-all">Build System</a>
+    </div>
+  </div>
+</header>
+
+<main class="flex-grow pt-24">
+<!-- ── Page Header ── -->
+<section class="relative h-64 flex items-center overflow-hidden border-b border-outline-variant/10">
+  <div class="absolute inset-0 grid-bg opacity-40"></div>
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent to-background"></div>
+  <div class="container mx-auto px-8 relative z-10 reveal">
+    <div class="flex flex-col gap-2">
+      <span class="text-primary font-label uppercase tracking-[0.3em] text-xs font-bold">Product Directory / Infrastructure</span>
+      <h1 class="text-5xl md:text-7xl font-headline font-bold tracking-tighter text-on-surface">Solar <span class="text-primary">Inverters</span></h1>
+    </div>
+  </div>
+</section>
+
+<section class="container mx-auto px-8 py-12">
+  <div class="flex flex-col lg:flex-row gap-12">
+    <!-- Filters Sidebar -->
+    <aside class="lg:w-80 flex-shrink-0 reveal">
+      <div class="glass-panel p-8 rounded-xl sticky top-32 border border-outline-variant/10">
+        <div class="flex items-center justify-between mb-8">
+          <h2 class="font-headline font-bold text-xl tracking-tight">System Filters</h2>
+          <span class="material-symbols-outlined text-primary text-xl">tune</span>
+        </div>
+        <!-- Power Output -->
+        <div class="mb-10">
+          <label class="font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant block mb-6">Power Output (kW)</label>
+          <div class="px-2">
+            <div class="h-1 bg-surface-container-highest rounded-full relative">
+              <div class="absolute left-0 right-1/4 h-full bg-primary rounded-full"></div>
+              <div class="absolute left-0 top-1/2 -translate-y-1/2 w-4 h-4 bg-primary rounded-full shadow-[0_0_10px_rgba(0,152,241,0.5)] cursor-pointer"></div>
+              <div class="absolute right-1/4 top-1/2 -translate-y-1/2 w-4 h-4 bg-primary rounded-full shadow-[0_0_10px_rgba(0,152,241,0.5)] cursor-pointer"></div>
+            </div>
+            <div class="flex justify-between mt-4 text-xs font-label text-on-surface-variant"><span>5.0 kW</span><span>25.0 kW</span></div>
+          </div>
+        </div>
+        <!-- Phase -->
+        <div class="mb-10">
+          <label class="font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant block mb-4">Phase Configuration</label>
+          <div class="space-y-3">
+            <label class="flex items-center justify-between group cursor-pointer"><span class="text-sm font-body text-on-surface group-hover:text-primary transition-colors">Single Phase</span><input checked class="w-5 h-5 rounded-lg bg-surface-container-highest border-outline-variant text-primary focus:ring-0 transition-all" type="checkbox"/></label>
+            <label class="flex items-center justify-between group cursor-pointer"><span class="text-sm font-body text-on-surface group-hover:text-primary transition-colors">Three Phase</span><input class="w-5 h-5 rounded-lg bg-surface-container-highest border-outline-variant text-primary focus:ring-0 transition-all" type="checkbox"/></label>
+            <label class="flex items-center justify-between group cursor-pointer"><span class="text-sm font-body text-on-surface group-hover:text-primary transition-colors">Hybrid Storage</span><input checked class="w-5 h-5 rounded-lg bg-surface-container-highest border-outline-variant text-primary focus:ring-0 transition-all" type="checkbox"/></label>
+          </div>
+        </div>
+        <!-- Efficiency Toggle -->
+        <div class="mb-10">
+          <div class="flex items-center justify-between">
+            <div><label class="font-label text-xs font-bold uppercase tracking-widest text-on-surface-variant block">High Efficiency</label><p class="text-[10px] text-outline italic">98% Conversion Or Higher</p></div>
+            <div class="relative inline-flex items-center cursor-pointer">
+              <input checked class="sr-only peer" type="checkbox"/>
+              <div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+            </div>
+          </div>
+        </div>
+        <button class="w-full py-3 bg-surface-container-high border border-outline-variant/20 rounded-lg font-label font-bold text-xs uppercase tracking-widest hover:bg-surface-container-highest transition-colors active:scale-95 text-on-surface">Reset Filters</button>
+      </div>
+    </aside>
+
+    <!-- Product Grid -->
+    <div class="flex-grow">
+      <div class="flex flex-col sm:flex-row justify-between items-center mb-8 gap-4 reveal">
+        <span class="font-label text-sm text-on-surface-variant">Showing <span class="text-on-surface font-bold">12</span> High-Performance Units</span>
+        <div class="flex items-center gap-4">
+          <span class="text-xs font-label uppercase tracking-widest text-outline">Sort By:</span>
+          <select class="bg-surface-container-high border-none text-sm font-body focus:ring-1 focus:ring-primary rounded-lg py-1.5 pl-3 pr-8 text-on-surface">
+            <option>Power Output (High to Low)</option>
+            <option>Efficiency</option>
+            <option>Popularity</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 reveal">
+        <!-- Card 1 -->
+        <div class="glow-card bg-surface-container border border-outline-variant/10 rounded-xl overflow-hidden transition-all duration-300 group flex flex-col">
+          <div class="relative aspect-square overflow-hidden bg-surface-container-low">
+            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-80 group-hover:opacity-100" src="../assets/battery.png"/>
+            <div class="absolute top-4 right-4 px-3 py-1 bg-primary text-white text-[10px] font-bold uppercase tracking-widest rounded-lg">Next-Gen</div>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="font-headline font-bold text-xl mb-1 group-hover:text-primary transition-colors">X-Series Pro 15k</h3>
+            <p class="text-xs text-on-surface-variant mb-6 font-body">Dual-MPPT Commercial Grade Inverter</p>
+            <div class="grid grid-cols-2 gap-4 mb-8">
+              <div class="space-y-1"><span class="block text-[10px] font-label uppercase tracking-widest text-outline">Efficiency</span><span class="block text-sm font-bold text-primary">98.4%</span></div>
+              <div class="space-y-1"><span class="block text-[10px] font-label uppercase tracking-widest text-outline">Rating</span><span class="block text-sm font-bold text-on-surface">IP66 Rated</span></div>
+            </div>
+            <div class="mt-auto flex gap-3">
+              <button class="flex-1 py-2.5 bg-primary text-white rounded-lg font-label font-bold text-[11px] uppercase tracking-widest hover:shadow-[0_0_10px_rgba(0,152,241,0.4)] transition-all active:scale-95">Configure</button>
+              <a href="../product_detailed/code.html" class="px-3 py-2.5 bg-surface-container-highest border border-outline-variant/30 rounded-lg hover:bg-surface-container-high transition-colors active:scale-95 flex items-center justify-center"><span class="material-symbols-outlined text-sm text-on-surface">visibility</span></a>
+            </div>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="glow-card bg-surface-container border border-outline-variant/10 rounded-xl overflow-hidden transition-all duration-300 group flex flex-col">
+          <div class="relative aspect-square overflow-hidden bg-surface-container-low">
+            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-80 group-hover:opacity-100" src="../assets/battery.png"/>
+            <div class="absolute top-4 right-4 px-3 py-1 bg-surface-container-highest text-on-surface text-[10px] font-bold uppercase tracking-widest rounded-lg">High Demand</div>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="font-headline font-bold text-xl mb-1 group-hover:text-primary transition-colors">VoltMaster Hybrid</h3>
+            <p class="text-xs text-on-surface-variant mb-6 font-body">Integrated Battery Storage Control</p>
+            <div class="grid grid-cols-2 gap-4 mb-8">
+              <div class="space-y-1"><span class="block text-[10px] font-label uppercase tracking-widest text-outline">Output</span><span class="block text-sm font-bold text-primary">8.0 kW</span></div>
+              <div class="space-y-1"><span class="block text-[10px] font-label uppercase tracking-widest text-outline">Phase</span><span class="block text-sm font-bold text-on-surface">Single Phase</span></div>
+            </div>
+            <div class="mt-auto flex gap-3">
+              <button class="flex-1 py-2.5 bg-primary text-white rounded-lg font-label font-bold text-[11px] uppercase tracking-widest hover:shadow-[0_0_10px_rgba(0,152,241,0.4)] transition-all active:scale-95">Configure</button>
+              <a href="../product_detailed/code.html" class="px-3 py-2.5 bg-surface-container-highest border border-outline-variant/30 rounded-lg hover:bg-surface-container-high transition-colors active:scale-95 flex items-center justify-center"><span class="material-symbols-outlined text-sm text-on-surface">visibility</span></a>
+            </div>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="glow-card bg-surface-container border border-outline-variant/10 rounded-xl overflow-hidden transition-all duration-300 group flex flex-col">
+          <div class="relative aspect-square overflow-hidden bg-surface-container-low">
+            <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 opacity-80 group-hover:opacity-100" src="../assets/battery.png"/>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <h3 class="font-headline font-bold text-xl mb-1 group-hover:text-primary transition-colors">TerraSync 25G</h3>
+            <p class="text-xs text-on-surface-variant mb-6 font-body">Utility Scale Grid Injection</p>
+            <div class="grid grid-cols-2 gap-4 mb-8">
+              <div class="space-y-1"><span class="block text-[10px] font-label uppercase tracking-widest text-outline">Efficiency</span><span class="block text-sm font-bold text-primary">99.1%</span></div>
+              <div class="space-y-1"><span class="block text-[10px] font-label uppercase tracking-widest text-outline">Phase</span><span class="block text-sm font-bold text-on-surface">3-Phase Pro</span></div>
+            </div>
+            <div class="mt-auto flex gap-3">
+              <button class="flex-1 py-2.5 bg-primary text-white rounded-lg font-label font-bold text-[11px] uppercase tracking-widest hover:shadow-[0_0_10px_rgba(0,152,241,0.4)] transition-all active:scale-95">Configure</button>
+              <a href="../product_detailed/code.html" class="px-3 py-2.5 bg-surface-container-highest border border-outline-variant/30 rounded-lg hover:bg-surface-container-high transition-colors active:scale-95 flex items-center justify-center"><span class="material-symbols-outlined text-sm text-on-surface">visibility</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="mt-16 flex justify-center items-center gap-2 reveal">
+        <button class="w-10 h-10 flex items-center justify-center border border-outline-variant/20 rounded-lg hover:bg-surface-container-high transition-colors active:scale-95 text-on-surface"><span class="material-symbols-outlined">chevron_left</span></button>
+        <button class="w-10 h-10 flex items-center justify-center bg-primary text-white font-bold rounded-lg active:scale-95">1</button>
+        <button class="w-10 h-10 flex items-center justify-center border border-outline-variant/20 rounded-lg hover:bg-surface-container-high transition-colors active:scale-95 text-on-surface">2</button>
+        <button class="w-10 h-10 flex items-center justify-center border border-outline-variant/20 rounded-lg hover:bg-surface-container-high transition-colors active:scale-95 text-on-surface">3</button>
+        <span class="px-2 text-outline">...</span>
+        <button class="w-10 h-10 flex items-center justify-center border border-outline-variant/20 rounded-lg hover:bg-surface-container-high transition-colors active:scale-95 text-on-surface">12</button>
+        <button class="w-10 h-10 flex items-center justify-center border border-outline-variant/20 rounded-lg hover:bg-surface-container-high transition-colors active:scale-95 text-on-surface"><span class="material-symbols-outlined">chevron_right</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Technical Features Spotlight ── -->
+<section class="bg-surface-container py-24 border-t border-primary/5">
+  <div class="container mx-auto px-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-12 reveal">
+      <div class="space-y-4">
+        <span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings:'FILL' 1;">bolt</span>
+        <h4 class="font-headline font-bold text-xl uppercase tracking-wider">Dynamic MPPT</h4>
+        <p class="text-on-surface-variant text-sm leading-relaxed font-body">Advanced Maximum Power Point Tracking algorithms adapt to cloud movement in milliseconds, reclaiming up to 4% more energy than standard units.</p>
+      </div>
+      <div class="space-y-4">
+        <span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings:'FILL' 1;">shield_with_heart</span>
+        <h4 class="font-headline font-bold text-xl uppercase tracking-wider">AFCI Protection</h4>
+        <p class="text-on-surface-variant text-sm leading-relaxed font-body">Integrated Arc Fault Circuit Interruption shuts down systems instantly if thermal anomalies are detected, ensuring total structural safety.</p>
+      </div>
+      <div class="space-y-4">
+        <span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings:'FILL' 1;">settings_input_antenna</span>
+        <h4 class="font-headline font-bold text-xl uppercase tracking-wider">Edge Monitoring</h4>
+        <p class="text-on-surface-variant text-sm leading-relaxed font-body">Each inverter features built-in 5G/LTE connectivity for real-time telemetry and OTA firmware updates without on-site technical visits.</p>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ═══════════════════════════════ UNIFIED FOOTER ═══════════════════════════════ -->
+<footer class="bg-[#0F1A2B] w-full pt-24 pb-12 font-body">
+  <div class="max-w-7xl mx-auto px-8 grid grid-cols-2 md:grid-cols-4 gap-12 text-sm leading-relaxed">
+    <div class="col-span-2 md:col-span-1 space-y-6">
+      <img alt="PowerXpress" class="h-8 w-auto brightness-0 invert" src="https://lh3.googleusercontent.com/aida/ADBb0ug-lxE44XHwJBbLVEwP7fHTaucksv5QbYGbxkELyCixWL8QtZ4Ebjy6M53ysh7XsFQQUpi836YnSuGTnYsGOwltGktg0hQpI-tLol4yCgYuUcWju3PhruJpboMmPI7jSnYBl-YeKJOK-1rrl1knR7AuD0juDFmVj8sVSZokAMiBSZM9yGrOO0WsXQeq3CzsGnaqTFywW_xUMxLRzwKAaP1L2WCBuFNYURRW3ZXDIEK2iEa78b6HDPm9Dyzh5puFgvqSYKg3hce7d7Q"/>
+      <p class="text-slate-500 opacity-80">Empowering the next generation of energy independence through kinetic innovation and storage excellence.</p>
+      <p class="text-xs uppercase tracking-widest text-slate-500/60 font-headline">© 2024 PowerXpress. Kinetic Monolith Systems.</p>
+    </div>
+    <div class="space-y-4">
+      <h4 class="font-headline font-bold text-white uppercase tracking-wider text-xs">Solutions</h4>
+      <nav class="flex flex-col gap-2">
+        <a class="text-slate-500 hover:text-sky-400 transition-colors opacity-80 hover:opacity-100" href="#">Solar Panels</a>
+        <a class="text-slate-500 hover:text-sky-400 transition-colors opacity-80 hover:opacity-100" href="#">Battery Hub</a>
+        <a class="text-slate-500 hover:text-sky-400 transition-colors opacity-80 hover:opacity-100" href="#">EV Charging</a>
+      </nav>
+    </div>
+    <div class="space-y-4">
+      <h4 class="font-headline font-bold text-white uppercase tracking-wider text-xs">Company</h4>
+      <nav class="flex flex-col gap-2">
+        <a class="text-slate-500 hover:text-sky-400 transition-colors opacity-80 hover:opacity-100" href="#">About Us</a>
+        <a class="text-slate-500 hover:text-sky-400 transition-colors opacity-80 hover:opacity-100" href="#">Careers</a>
+        <a class="text-slate-500 hover:text-sky-400 transition-colors opacity-80 hover:opacity-100" href="#">Contact</a>
+      </nav>
+    </div>
+    <div class="space-y-4">
+      <h4 class="font-headline font-bold text-white uppercase tracking-wider text-xs">Legal &amp; Support</h4>
+      <nav class="flex flex-col gap-2">
+        <a class="text-slate-500 hover:text-sky-400 transition-colors opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+        <a class="text-slate-500 hover:text-sky-400 transition-colors opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+        <a class="text-sky-400 hover:text-sky-300 transition-colors text-xs font-bold" href="#"><span class="inline-block w-2 h-2 rounded-full bg-emerald-500 mr-1.5 shadow-[0_0_6px_rgba(16,185,129,0.6)]"></span>System Status: Operational</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+window.addEventListener('scroll', () => {
+  const inner = document.querySelector('#main-nav > div');
+  if (window.scrollY > 60) inner.style.background = 'rgba(10,18,35,0.85)';
+  else inner.style.background = '';
+}, { passive: true });
+</script>
+</body>
+</html>

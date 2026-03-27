@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Power Express | PX-Battery V.4 Ioncore</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<!-- Fonts: Orbitron (headlines) · Space Grotesk (body) -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary": "#0098F1",
+        "on-primary": "#ffffff",
+        "primary-container": "#004a78",
+        "primary-fixed-dim": "#5BBBF7",
+        "surface": "#081020",
+        "surface-container-lowest": "#050c18",
+        "surface-container-low": "#0F1A2B",
+        "surface-container": "#142033",
+        "surface-container-high": "#1A2840",
+        "surface-container-highest": "#1A263A",
+        "background": "#081020",
+        "on-surface": "#e1e2e8",
+        "on-surface-variant": "#c1c7ce",
+        "outline": "#8b9198",
+        "outline-variant": "#41484d",
+        "secondary": "#97cbff",
+        "secondary-container": "#65D7CF",
+        "tertiary": "#76f9ea",
+        "surface-variant": "#41484d",
+      },
+      fontFamily: {
+        "headline": ["Orbitron", "sans-serif"],
+        "body": ["Space Grotesk", "sans-serif"],
+        "label": ["Space Grotesk", "sans-serif"],
+        "sans": ["Space Grotesk", "sans-serif"],
+      },
+      borderRadius: {
+        "DEFAULT": "0.75rem", "sm": "0.375rem", "md": "0.5rem",
+        "lg": "0.75rem", "xl": "1rem", "2xl": "1.5rem",
+        "full": "9999px",
+      },
+    },
+  },
+}
+</script>
+<style>
+h1, h2, h3, h4 { font-family: 'Orbitron', sans-serif !important; }
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24; }
+.glass-panel { background: rgba(15,26,43,0.7); backdrop-filter: blur(20px); }
+.spotlight-gradient { background: radial-gradient(circle at 50% 50%,rgba(0,152,241,0.1) 0%,rgba(8,16,32,0) 70%); }
+.text-glow { text-shadow: 0 0 15px rgba(0,152,241,0.3); }
+.no-scrollbar::-webkit-scrollbar { display:none; }
+.btn-kinetic { position:relative; overflow:hidden; transition:all 0.3s cubic-bezier(0.4,0,0.2,1); border-radius:9999px; font-family:'Space Grotesk',sans-serif; text-transform:uppercase; letter-spacing:0.1em; font-weight:700; display:inline-flex; align-items:center; justify-content:center; }
+.btn-kinetic-primary { background:#0098F1; color:#ffffff; }
+.btn-kinetic-primary:hover { box-shadow:0 0 25px rgba(0,152,241,0.5); transform:translateY(-1px); }
+.btn-kinetic-outline { border:1px solid rgba(0,152,241,0.4); background:transparent; color:#e1e2e8; }
+.btn-kinetic-outline:hover { background:rgba(0,152,241,0.08); border-color:#0098F1; }
+.nav-dropdown { opacity:0; visibility:hidden; transform:translateY(8px); transition:all 0.2s ease; }
+.nav-trigger:hover .nav-dropdown, .nav-trigger:focus-within .nav-dropdown { opacity:1; visibility:visible; transform:translateY(0); }
+.reveal { opacity:0; transform:translateY(24px); transition:opacity 0.7s ease,transform 0.7s ease; }
+.reveal.visible { opacity:1; transform:none; }
+</style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary">
+
+<!-- ═══════════════════════════════ UNIFIED NAVBAR ═══════════════════════════════ -->
+<header class="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 pt-6" id="main-nav">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-3 bg-slate-900/60 backdrop-blur-3xl rounded-full border border-white/10 shadow-[0px_24px_48px_-12px_rgba(0,152,241,0.15)] transition-all duration-300">
+    <a href="../home/code.html" class="h-8 flex items-center flex-shrink-0">
+      <img alt="PowerXpress" class="h-8 w-auto brightness-0 invert" src="https://lh3.googleusercontent.com/aida/ADBb0ug-lxE44XHwJBbLVEwP7fHTaucksv5QbYGbxkELyCixWL8QtZ4Ebjy6M53ysh7XsFQQUpi836YnSuGTnYsGOwltGktg0hQpI-tLol4yCgYuUcWju3PhruJpboMmPI7jSnYBl-YeKJOK-1rrl1knR7AuD0juDFmVj8sVSZokAMiBSZM9yGrOO0WsXQeq3CzsGnaqTFywW_xUMxLRzwKAaP1L2WCBuFNYURRW3ZXDIEK2iEa78b6HDPm9Dyzh5puFgvqSYKg3hce7d7Q"/>
+    </a>
+    <nav class="hidden lg:flex items-center gap-1 font-headline tracking-tight text-sm uppercase">
+      <a class="text-slate-400 hover:text-sky-200 hover:bg-white/5 px-4 py-2 rounded-full transition-all" href="../home/code.html">Home</a>
+      <a class="text-slate-400 hover:text-sky-200 hover:bg-white/5 px-4 py-2 rounded-full transition-all" href="../solution/code.html">Solutions</a>
+      <div class="nav-trigger relative">
+        <button class="text-sky-400 font-bold bg-white/5 flex items-center gap-0.5 px-4 py-2 rounded-full transition-all">Products <span class="material-symbols-outlined text-[18px] mt-0.5">expand_more</span></button>
+        <div class="nav-dropdown absolute top-full left-1/2 -translate-x-1/2 mt-3 w-52 bg-surface-container-low/95 backdrop-blur-xl rounded-xl border border-white/10 shadow-2xl shadow-black/50 overflow-hidden">
+          <a class="block px-5 py-3 text-slate-400 hover:text-sky-200 hover:bg-white/5 transition-colors text-xs tracking-wide" href="../product_listing/code.html">Product Catalogue</a>
+          <a class="block px-5 py-3 text-sky-400 font-medium hover:bg-white/5 transition-colors text-xs tracking-wide" href="code.html">Product Details</a>
+        </div>
+      </div>
+      <a class="text-slate-400 hover:text-sky-200 hover:bg-white/5 px-4 py-2 rounded-full transition-all" href="../system_builder/code.html">System Builder</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button class="material-symbols-outlined text-slate-400 hover:text-sky-200 p-2 hover:bg-white/5 rounded-full transition-all active:scale-90">notifications</button>
+      <button class="material-symbols-outlined text-slate-400 hover:text-sky-200 p-2 hover:bg-white/5 rounded-full transition-all active:scale-90">settings</button>
+      <a href="../system_builder/code.html" class="ml-1 bg-primary text-on-primary px-5 py-2 rounded-full font-bold text-xs uppercase tracking-wider hover:shadow-[0_0_20px_rgba(0,152,241,0.4)] active:scale-90 transition-all">Build System</a>
+    </div>
+  </div>
+</header>
+
+<main class="pt-24">
+<!-- ── Hero ── -->
+<section class="relative min-h-[870px] flex flex-col items-center justify-center overflow-hidden px-8">
+  <div class="absolute inset-0 spotlight-gradient pointer-events-none"></div>
+  <div class="max-w-7xl w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
+    <div class="lg:col-span-5 order-2 lg:order-1 reveal">
+      <span class="font-label text-primary tracking-[0.3em] uppercase text-sm mb-4 block">Core Node Series</span>
+      <h1 class="font-headline text-5xl lg:text-7xl font-bold leading-[1.1] mb-6 tracking-tighter text-glow">PX-Battery <br/>V.4 Ioncore</h1>
+      <p class="text-on-surface-variant text-lg max-w-md mb-8 leading-relaxed font-body">The ultimate high-density energy storage module. Engineered for zero-latency grid transition and extreme climate resilience.</p>
+      <div class="flex flex-wrap gap-4 items-baseline mb-10">
+        <span class="text-4xl font-headline font-bold text-on-surface">$8,450.00</span>
+        <span class="text-outline-variant line-through text-xl">$9,200.00</span>
+        <div class="flex items-center gap-2 px-3 py-1 bg-primary/10 rounded-full border border-primary/20">
+          <span class="material-symbols-outlined text-primary text-sm">check_circle</span>
+          <span class="text-primary text-xs font-label uppercase font-bold tracking-wider">In Stock</span>
+        </div>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-4">
+        <button class="flex-1 btn-kinetic btn-kinetic-primary py-4 text-sm active:scale-95">Configure Unit</button>
+        <button class="px-8 py-4 btn-kinetic btn-kinetic-outline text-sm active:scale-95">Download Datasheet</button>
+      </div>
+    </div>
+    <div class="lg:col-span-7 order-1 lg:order-2 flex justify-center lg:justify-end relative">
+      <div class="relative w-full aspect-square max-w-2xl">
+        <div class="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent rounded-full blur-3xl opacity-30"></div>
+        <img alt="PX-Battery V.4" class="w-full h-full object-contain drop-shadow-[0_30px_60px_rgba(0,0,0,0.8)]" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3Lo_nTgmOWxrP_FJKPUh4jERsjfqhgMZHl1Dl51lRyDiz5eEp6Vv8KmnhWMqtkShJ6JDaZ2xe8MeT67Hen7yB6kvTiBlpyIDOILylqp-NX0572N8DE5t85rPd1Qla-88nhbNAflZExdewrZsKY9DiXWtrjKHGngEb5dQmyujLq_wdfAfUh_-l-mPKEumGMOpJpRKHxDgv9B_y-QVlPupTU6swCFBL5V8BMvNq8sv1BvaQxR4G_MsXohC9Xtne9br2ZixhvfHpq58"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Key Specs ── -->
+<section class="bg-surface-container-low py-16 border-y border-outline-variant/10">
+  <div class="max-w-7xl mx-auto px-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 reveal">
+      <div class="flex flex-col gap-1"><span class="text-primary font-headline text-4xl lg:text-5xl font-bold">13.5<span class="text-lg ml-1 opacity-60">kWh</span></span><span class="font-label text-xs uppercase tracking-[0.2em] text-on-surface-variant">Storage Capacity</span></div>
+      <div class="flex flex-col gap-1"><span class="text-primary font-headline text-4xl lg:text-5xl font-bold">7.0<span class="text-lg ml-1 opacity-60">kW</span></span><span class="font-label text-xs uppercase tracking-[0.2em] text-on-surface-variant">Continuous Output</span></div>
+      <div class="flex flex-col gap-1"><span class="text-primary font-headline text-4xl lg:text-5xl font-bold">15<span class="text-lg ml-1 opacity-60">Years</span></span><span class="font-label text-xs uppercase tracking-[0.2em] text-on-surface-variant">Full Warranty</span></div>
+      <div class="flex flex-col gap-1"><span class="text-primary font-headline text-4xl lg:text-5xl font-bold">0.02<span class="text-lg ml-1 opacity-60">ms</span></span><span class="font-label text-xs uppercase tracking-[0.2em] text-on-surface-variant">Switch Latency</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Product Details Tabs ── -->
+<section class="py-24 max-w-7xl mx-auto px-8">
+  <div class="flex gap-8 border-b border-outline-variant/20 mb-12 overflow-x-auto no-scrollbar font-headline reveal">
+    <button class="pb-6 px-4 text-primary border-b-2 border-primary tracking-tight whitespace-nowrap font-bold">Overview</button>
+    <button class="pb-6 px-4 text-on-surface-variant hover:text-on-surface transition-colors tracking-tight whitespace-nowrap">Technical Specs</button>
+    <button class="pb-6 px-4 text-on-surface-variant hover:text-on-surface transition-colors tracking-tight whitespace-nowrap">Compatibility</button>
+    <button class="pb-6 px-4 text-on-surface-variant hover:text-on-surface transition-colors tracking-tight whitespace-nowrap">Documents</button>
+  </div>
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 reveal">
+    <div class="space-y-10">
+      <div>
+        <h3 class="font-headline text-2xl font-bold mb-4">Unrivaled Power Density</h3>
+        <p class="text-on-surface-variant leading-relaxed font-body">The V.4 IonCore represents a breakthrough in chemical stability and energy density. Utilizing our proprietary solid-state cooling architecture, the PX-Battery maintains peak efficiency even under 100% load during grid outages.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="p-6 bg-surface-container rounded-xl border border-outline-variant/10">
+          <span class="material-symbols-outlined text-primary mb-4" style="font-variation-settings:'FILL' 1;">bolt</span>
+          <h4 class="font-headline font-bold mb-2">Instant Response</h4>
+          <p class="text-sm text-on-surface-variant font-body">Seamless backup that your sensitive electronics won't even notice.</p>
+        </div>
+        <div class="p-6 bg-surface-container rounded-xl border border-outline-variant/10">
+          <span class="material-symbols-outlined text-primary mb-4" style="font-variation-settings:'FILL' 1;">ac_unit</span>
+          <h4 class="font-headline font-bold mb-2">All-Weather Tech</h4>
+          <p class="text-sm text-on-surface-variant font-body">Operating temperature range from -20°C to 55°C without throttling.</p>
+        </div>
+      </div>
+    </div>
+    <!-- System Suggestions -->
+    <div class="glass-panel p-8 rounded-xl border border-primary/20 relative overflow-hidden shadow-lg">
+      <div class="absolute top-0 right-0 p-4 opacity-5"><span class="material-symbols-outlined text-9xl text-primary">hub</span></div>
+      <span class="font-label text-xs text-primary uppercase tracking-widest mb-2 block">System Intelligence</span>
+      <h3 class="font-headline text-xl font-bold mb-6">Recommended Ecosystem</h3>
+      <div class="space-y-6">
+        <div class="flex gap-6 items-center">
+          <div class="w-16 h-16 bg-surface-container-highest rounded-lg flex items-center justify-center border border-outline-variant/10"><img alt="Inverter" class="w-10 h-10 object-contain opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOyZ-wTkSGLk3SwpUI0hI_y9k1EoRUlUKRH9rc9aPzynIH7tAeOOdEz-m7SGPC0CT_0G-vw2UlMv9adNzlHevOuCgRz0Qy0jUZwmDWYK38Cj8b2xKgS7nlqJ2KDbE5jg975PuSAH6SqOoctgQokvKqBrWkY8Aiz34whL5xOv7IDDG6G2SMM3LApjPdGpCUec5UH4XoLL80153OnYj3y8kchZ_QPJp2GS4i_51RdKpkPz-OHjwig5YjvZEFKuA-tTIsdHp_gU_tKM"/></div>
+          <div class="flex-1"><h4 class="text-sm font-bold font-headline">PX-Hybrid Inverter Pro</h4><p class="text-xs text-on-surface-variant font-body">Syncs instantly with V.4 units</p></div>
+          <button class="text-primary hover:bg-primary/10 p-2 rounded transition-colors"><span class="material-symbols-outlined">add</span></button>
+        </div>
+        <div class="flex gap-6 items-center">
+          <div class="w-16 h-16 bg-surface-container-highest rounded-lg flex items-center justify-center border border-outline-variant/10"><img alt="Solar Panel" class="w-10 h-10 object-contain opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCH2TZqDgwzhl5MSgG3Ha8Wwo1xJHaygP6wvuCslxvwgVot58cR3BB66e7Snf-LPcCFYBbSJrWQkw0Bdd6o4e5221m0cR9-A-88wNznq7ZvAlBo_t3MGpjm8kn79OT1jMHveaKyFAxQHkIIa0Ak76Zi6aRQVoBl2EdcVnvoJGLVToyoJDb5tmYgFHneAw6s4EHvExlC3fyXDc9TXn3BaQ29Bj1z_uLG-8VmT1WJll6B6AfF2uaGl5vSoGy4yIz4sf4hou-M1JrUQsM"/></div>
+          <div class="flex-1"><h4 class="text-sm font-bold font-headline">PX-Solar Glass 400W</h4><p class="text-xs text-on-surface-variant font-body">Optimized for rapid charging</p></div>
+          <button class="text-primary hover:bg-primary/10 p-2 rounded transition-colors"><span class="material-symbols-outlined">add</span></button>
+        </div>
+      </div>
+      <div class="mt-8 pt-6 border-t border-outline-variant/10">
+        <div class="flex justify-between items-center mb-4">
+          <span class="text-sm font-body">Node Total Estimated</span>
+          <span class="text-lg font-headline font-bold text-primary">$12,890.00</span>
+        </div>
+        <button class="w-full btn-kinetic btn-kinetic-primary py-3 text-sm active:scale-95">Build Complete Node</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Related Products ── -->
+<section class="py-24 bg-surface-container-lowest">
+  <div class="max-w-7xl mx-auto px-8">
+    <h2 class="font-headline text-3xl font-bold mb-12 reveal">Expand Your Capacity</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 reveal">
+      <div class="group bg-surface-container p-1 flex flex-col hover:bg-surface-container-high transition-all duration-300 rounded-xl border border-outline-variant/10">
+        <div class="aspect-[4/3] bg-surface-container-low overflow-hidden relative rounded-lg"><img alt="Smart Hub" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1voYN80Id4o8-jaLQto8t6kaY51PGsa5ti8NlusNoYmEMuOElUh7fDvsbpHYi8_nU2Ker5De4yI_715SHHDc9Srb-wNDh8BiEXGexxJ8N0sdwjawi7MQ9jjzxN7FBqMknW2J9lQLwObH9lcYUsKIo8443mij13xgmz6uABkYqqMqMZPahVfo_aucJVPdltzxAws6GPn27r7RtkXZlZeHKXyNJ-NJjStby6WYTx0XV-XCHeArkVGCQgvi0DBHkzWwhR-lR0LQbsJ4"/></div>
+        <div class="p-6"><span class="text-[10px] uppercase tracking-widest text-primary mb-2 block font-label">Monitoring</span><h3 class="font-headline font-bold text-lg mb-2">PX-Smart Gateway</h3><p class="text-sm text-on-surface-variant mb-4 font-body">Real-time AI energy forecasting and grid health analytics.</p><span class="text-primary font-headline font-bold">$1,200.00</span></div>
+      </div>
+      <div class="group bg-surface-container p-1 flex flex-col hover:bg-surface-container-high transition-all duration-300 rounded-xl border border-outline-variant/10">
+        <div class="aspect-[4/3] bg-surface-container-low overflow-hidden relative rounded-lg"><img alt="EV Charger" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALuBqI_vPViXcg6DgjzKDAmfFFFpsJXcGZAOaqqo0RdYGLqxK4gHr1B7X2Hvf-pl4kTvh6aQQ9uaYABhScHowO-v8MlwsHXk_cqhDc_ji15KtasmEDyfJIjt0sonXsYUDuTBnJmpFf6QhOnhc44WpR_cfzQYS0B6Lk4YJrVOGQ3ajzG_n7gGDfRixudkuKSrKDlEDhvkQx5xhKPc9-gDfL-xI6JjZ-luY3Oj9vd_31pAt9Gw1Fm8W5ykhFp0x449EPjX_Y4Kh26Ks"/></div>
+        <div class="p-6"><span class="text-[10px] uppercase tracking-widest text-primary mb-2 block font-label">Mobility</span><h3 class="font-headline font-bold text-lg mb-2">PX-Charge Ultra</h3><p class="text-sm text-on-surface-variant mb-4 font-body">High-speed EV charger powered directly by PX-Battery reserves.</p><span class="text-primary font-headline font-bold">$2,850.00</span></div>
+      </div>
+      <div class="group bg-surface-container p-1 flex flex-col hover:bg-surface-container-high transition-all duration-300 rounded-xl border border-outline-variant/10">
+        <div class="aspect-[4/3] bg-surface-container-low overflow-hidden relative rounded-lg"><img alt="Module Link" class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZixANwt72ELPdpFkAEP3Oej5Y33jdWM-FpUqXvC10cjTCxZphHSl2v2VuOONqej3xc9qZgHrNZ6Lm8JCrUtZ0nJJbHIoRt_rUrD5pVfSms8g-L94J8jbKrNfj9jOWIkKt4SbwI786AO6J-rbBToblYcahvu_9rQ49M7KgnWtExnftdxfpvzumyO44-2LGqBZcNre4WOGCBjzR5k1GJXTKHYmxW0XoeGS2F6rlCNU_9u5TaNH4mbKbzKRaeqHcPVDuO1LGhEkrhds"/></div>
+        <div class="p-6"><span class="text-[10px] uppercase tracking-widest text-primary mb-2 block font-label">Connectivity</span><h3 class="font-headline font-bold text-lg mb-2">PX-Link Bridge</h3><p class="text-sm text-on-surface-variant mb-4 font-body">Daisy-chain up to 10 V.4 units for commercial-grade storage.</p><span class="text-primary font-headline font-bold">$450.00</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ═══════════════════════════════ UNIFIED FOOTER ═══════════════════════════════ -->
+<footer class="bg-[#0F1A2B] w-full pt-24 pb-12 font-body">
+  <div class="max-w-7xl mx-auto px-8 grid grid-cols-2 md:grid-cols-4 gap-12 text-sm leading-relaxed">
+    <div class="col-span-2 md:col-span-1 space-y-6">
+      <img alt="PowerXpress" class="h-8 w-auto brightness-0 invert" src="https://lh3.googleusercontent.com/aida/ADBb0ug-lxE44XHwJBbLVEwP7fHTaucksv5QbYGbxkELyCixWL8QtZ4Ebjy6M53ysh7XsFQQUpi836YnSuGTnYsGOwltGktg0hQpI-tLol4yCgYuUcWju3PhruJpboMmPI7jSnYBl-YeKJOK-1rrl1knR7AuD0juDFmVj8sVSZokAMiBSZM9yGrOO0WsXQeq3CzsGnaqTFywW_xUMxLRzwKAaP1L2WCBuFNYURRW3ZXDIEK2iEa78b6HDPm9Dyzh5puFgvqSYKg3hce7d7Q"/>
+      <p class="text-slate-500 opacity-80">Empowering the next generation of energy independence through kinetic innovation and storage excellence.</p>
+      <p class="text-xs uppercase tracking-widest text-slate-500/60 font-headline">© 2024 PowerXpress. Kinetic Monolith Systems.</p>
+    </div>
+    <div class="space-y-4">
+      <h4 class="font-headline font-bold text-white uppercase tracking-wider text-xs">Solutions</h4>
+      <nav class="flex flex-col gap-2">
+        <a class="text-slate-500 hover:text-sky-400 transition-colors opacity-80 hover:opacity-100" href="#">Solar Panels</a>
+        <a class="text-slate-500 hover:text-sky-400 transition-colors opacity-80 hover:opacity-100" href="#">Battery Hub</a>
+        <a class="text-slate-500 hover:text-sky-400 transition-colors opacity-80 hover:opacity-100" href="#">EV Charging</a>
+      </nav>
+    </div>
+    <div class="space-y-4">
+      <h4 class="font-headline font-bold text-white uppercase tracking-wider text-xs">Company</h4>
+      <nav class="flex flex-col gap-2">
+        <a class="text-slate-500 hover:text-sky-400 transition-colors opacity-80 hover:opacity-100" href="#">About Us</a>
+        <a class="text-slate-500 hover:text-sky-400 transition-colors opacity-80 hover:opacity-100" href="#">Careers</a>
+        <a class="text-slate-500 hover:text-sky-400 transition-colors opacity-80 hover:opacity-100" href="#">Contact</a>
+      </nav>
+    </div>
+    <div class="space-y-4">
+      <h4 class="font-headline font-bold text-white uppercase tracking-wider text-xs">Legal &amp; Support</h4>
+      <nav class="flex flex-col gap-2">
+        <a class="text-slate-500 hover:text-sky-400 transition-colors opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+        <a class="text-slate-500 hover:text-sky-400 transition-colors opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+        <a class="text-sky-400 hover:text-sky-300 transition-colors text-xs font-bold" href="#"><span class="inline-block w-2 h-2 rounded-full bg-emerald-500 mr-1.5 shadow-[0_0_6px_rgba(16,185,129,0.6)]"></span>System Status: Operational</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+window.addEventListener('scroll', () => {
+  const inner = document.querySelector('#main-nav > div');
+  if (window.scrollY > 60) inner.style.background = 'rgba(10,18,35,0.85)';
+  else inner.style.background = '';
+}, { passive: true });
+</script>
+</body>
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Power Express | System Builder</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<!-- Fonts: Orbitron (headlines) · Space Grotesk (body) -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "primary": "#0098F1",
+        "on-primary": "#ffffff",
+        "primary-container": "#004a78",
+        "primary-fixed-dim": "#5BBBF7",
+        "surface": "#081020",
+        "surface-container-lowest": "#050c18",
+        "surface-container-low": "#0F1A2B",
+        "surface-container": "#142033",
+        "surface-container-high": "#1A2840",
+        "surface-container-highest": "#1A263A",
+        "background": "#081020",
+        "on-surface": "#e1e2e8",
+        "on-background": "#e1e2e8",
+        "on-surface-variant": "#c1c7ce",
+        "outline": "#8b9198",
+        "outline-variant": "#41484d",
+        "secondary": "#97cbff",
+        "tertiary": "#76f9ea",
+        "surface-variant": "#41484d",
+      },
+      fontFamily: {
+        "headline": ["Orbitron", "sans-serif"],
+        "body": ["Space Grotesk", "sans-serif"],
+        "label": ["Space Grotesk", "sans-serif"],
+        "sans": ["Space Grotesk", "sans-serif"],
+      },
+      borderRadius: {
+        "DEFAULT": "0.75rem", "sm": "0.375rem", "md": "0.5rem",
+        "lg": "0.75rem", "xl": "1rem", "2xl": "1.5rem",
+        "full": "9999px", "kinetic": "12px",
+      },
+    },
+  },
+}
+</script>
+<style>
+* { font-family: 'Space Grotesk', sans-serif !important; }
+h1, h2, h3, h4 { font-family: 'Orbitron', sans-serif !important; }
+.material-symbols-outlined { font-family: 'Material Symbols Outlined' !important; font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+.kinetic-bg { background-image: radial-gradient(circle at 0% 0%,rgba(0,152,241,0.03) 0%,transparent 50%), radial-gradient(circle at 100% 100%,rgba(0,152,241,0.02) 0%,transparent 50%); background-attachment: fixed; }
+.obsidian-card { background: linear-gradient(145deg,rgba(20,32,51,0.8),rgba(15,26,43,0.9)); border: 1px solid rgba(65,72,77,0.3); backdrop-filter: blur(12px); }
+.obsidian-card:hover { border-color: rgba(0,152,241,0.4); box-shadow: 0 0 20px rgba(0,152,241,0.1); }
+.active-selection { border-color: #0098F1 !important; background: linear-gradient(145deg,rgba(0,152,241,0.05),rgba(15,26,43,0.9)) !important; box-shadow: 0 0 30px rgba(0,152,241,0.15); }
+.nav-dropdown { opacity:0; visibility:hidden; transform:translateY(8px); transition:all 0.2s ease; }
+.nav-trigger:hover .nav-dropdown, .nav-trigger:focus-within .nav-dropdown { opacity:1; visibility:visible; transform:translateY(0); }
+.reveal { opacity:0; transform:translateY(24px); transition:opacity 0.7s ease,transform 0.7s ease; }
+.reveal.visible { opacity:1; transform:none; }
+</style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary/20 selection:text-on-primary min-h-screen overflow-x-hidden kinetic-bg flex flex-col">
+
+<!-- ═══════════════════════════════ UNIFIED NAVBAR ═══════════════════════════════ -->
+<header class="fixed top-0 left-0 right-0 z-50 px-4 md:px-8 pt-6" id="main-nav">
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-3 bg-slate-900/60 backdrop-blur-3xl rounded-full border border-white/10 shadow-[0px_24px_48px_-12px_rgba(0,152,241,0.15)] transition-all duration-300">
+    <a href="../home/code.html" class="h-8 flex items-center flex-shrink-0">
+      <img alt="PowerXpress" class="h-8 w-auto brightness-0 invert" src="https://lh3.googleusercontent.com/aida/ADBb0ug-lxE44XHwJBbLVEwP7fHTaucksv5QbYGbxkELyCixWL8QtZ4Ebjy6M53ysh7XsFQQUpi836YnSuGTnYsGOwltGktg0hQpI-tLol4yCgYuUcWju3PhruJpboMmPI7jSnYBl-YeKJOK-1rrl1knR7AuD0juDFmVj8sVSZokAMiBSZM9yGrOO0WsXQeq3CzsGnaqTFywW_xUMxLRzwKAaP1L2WCBuFNYURRW3ZXDIEK2iEa78b6HDPm9Dyzh5puFgvqSYKg3hce7d7Q"/>
+    </a>
+    <nav class="hidden lg:flex items-center gap-1 font-headline tracking-tight text-sm uppercase">
+      <a class="text-slate-400 hover:text-sky-200 hover:bg-white/5 px-4 py-2 rounded-full transition-all" href="../home/code.html">Home</a>
+      <a class="text-slate-400 hover:text-sky-200 hover:bg-white/5 px-4 py-2 rounded-full transition-all" href="../solution/code.html">Solutions</a>
+      <div class="nav-trigger relative">
+        <button class="text-slate-400 hover:text-sky-200 hover:bg-white/5 flex items-center gap-0.5 px-4 py-2 rounded-full transition-all">Products <span class="material-symbols-outlined text-[18px] mt-0.5">expand_more</span></button>
+        <div class="nav-dropdown absolute top-full left-1/2 -translate-x-1/2 mt-3 w-52 bg-surface-container-low/95 backdrop-blur-xl rounded-xl border border-white/10 shadow-2xl shadow-black/50 overflow-hidden">
+          <a class="block px-5 py-3 text-slate-400 hover:text-sky-200 hover:bg-white/5 transition-colors text-xs tracking-wide" href="../product_listing/code.html">Product Catalogue</a>
+          <a class="block px-5 py-3 text-slate-400 hover:text-sky-200 hover:bg-white/5 transition-colors text-xs tracking-wide" href="../product_detailed/code.html">Product Details</a>
+        </div>
+      </div>
+      <a class="text-sky-400 font-bold bg-white/5 px-4 py-2 rounded-full transition-all" href="code.html">System Builder</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button class="material-symbols-outlined text-slate-400 hover:text-sky-200 p-2 hover:bg-white/5 rounded-full transition-all scale-95 active:scale-90">notifications</button>
+      <button class="material-symbols-outlined text-slate-400 hover:text-sky-200 p-2 hover:bg-white/5 rounded-full transition-all scale-95 active:scale-90">settings</button>
+      <a href="code.html" class="ml-1 bg-primary text-on-primary px-5 py-2 rounded-full font-bold text-xs uppercase tracking-wider hover:shadow-[0_0_20px_rgba(0,152,241,0.4)] active:scale-90 transition-all">Build System</a>
+    </div>
+  </div>
+</header>
+
+<main class="pt-32 pb-20 px-8 flex-grow">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10">
+    <!-- Configurator Core -->
+    <div class="lg:col-span-8 space-y-12">
+      <!-- Progress Header -->
+      <header class="space-y-6 reveal">
+        <div class="flex flex-col gap-2">
+          <span class="text-primary text-xs uppercase tracking-[0.2em] font-bold">Step 01 / 04</span>
+          <h1 class="text-5xl font-bold text-on-surface tracking-tight leading-tight">Define Your Energy Blueprint</h1>
+        </div>
+        <div class="flex items-center gap-4 w-full h-1.5 bg-surface-container-highest rounded-full overflow-hidden">
+          <div class="w-1/4 h-full bg-primary shadow-[0_0_15px_rgba(0,152,241,0.5)]"></div>
+          <div class="w-1/4 h-full bg-surface-container"></div>
+          <div class="w-1/4 h-full bg-surface-container"></div>
+          <div class="w-1/4 h-full bg-surface-container"></div>
+        </div>
+        <div class="flex justify-between text-[11px] text-on-surface-variant uppercase tracking-widest font-semibold">
+          <span class="text-primary">System Type</span>
+          <span>Components</span>
+          <span>Compatibility</span>
+          <span>Review</span>
+        </div>
+      </header>
+      <!-- Selection Grid -->
+      <section class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal">
+        <button class="obsidian-card group relative flex flex-col text-left p-8 rounded-xl transition-all duration-500 overflow-hidden outline-none ring-primary/50 focus:ring-2">
+          <div class="mb-8 p-3 rounded-lg bg-surface-container-highest w-fit"><span class="material-symbols-outlined text-primary text-3xl">light_mode</span></div>
+          <h3 class="text-2xl font-bold text-on-surface mb-2">Solar Only</h3>
+          <p class="text-on-surface-variant text-base leading-relaxed mb-6">Standard grid-tied configuration for daytime energy generation and net-metering.</p>
+          <div class="mt-auto flex items-center justify-between">
+            <span class="text-xs text-on-surface-variant uppercase font-bold tracking-wider">Starting At $4,200</span>
+            <span class="material-symbols-outlined text-primary group-hover:translate-x-2 transition-transform">arrow_forward</span>
+          </div>
+        </button>
+        <button class="obsidian-card active-selection relative flex flex-col text-left p-8 rounded-xl transition-all duration-500 overflow-hidden outline-none">
+          <div class="absolute top-0 right-0 p-4"><span class="material-symbols-outlined text-primary" style="font-variation-settings:'FILL' 1;">check_circle</span></div>
+          <div class="mb-8 p-3 rounded-lg bg-primary/10 w-fit"><span class="material-symbols-outlined text-primary text-3xl" style="font-variation-settings:'FILL' 1;">battery_charging_full</span></div>
+          <h3 class="text-2xl font-bold text-on-surface mb-2">Solar + Storage</h3>
+          <p class="text-on-surface-variant text-base leading-relaxed mb-6">Full autonomy with PowerXpress battery modules. Keep the lights on through any outage.</p>
+          <div class="mt-auto flex items-center justify-between">
+            <span class="text-xs text-primary uppercase font-bold tracking-tight">Recommended Configuration</span>
+            <span class="material-symbols-outlined text-primary">arrow_forward</span>
+          </div>
+        </button>
+        <button class="obsidian-card group relative flex flex-col text-left p-8 rounded-xl transition-all duration-500 overflow-hidden outline-none">
+          <div class="mb-8 p-3 rounded-lg bg-surface-container-highest w-fit"><span class="material-symbols-outlined text-primary text-3xl">grid_view</span></div>
+          <h3 class="text-2xl font-bold text-on-surface mb-2">Full Microgrid</h3>
+          <p class="text-on-surface-variant text-base leading-relaxed mb-6">Ultimate industrial-grade reliability with generator integration and EV fast-charging.</p>
+          <div class="mt-auto flex items-center justify-between">
+            <span class="text-xs text-on-surface-variant uppercase font-bold tracking-wider">Custom Quote Required</span>
+            <span class="material-symbols-outlined text-primary group-hover:translate-x-2 transition-transform">arrow_forward</span>
+          </div>
+        </button>
+        <button class="obsidian-card group relative flex flex-col text-left p-8 rounded-xl transition-all duration-500 overflow-hidden outline-none">
+          <div class="mb-8 p-3 rounded-lg bg-surface-container-highest w-fit"><span class="material-symbols-outlined text-primary text-3xl">add_box</span></div>
+          <h3 class="text-2xl font-bold text-on-surface mb-2">System Upgrade</h3>
+          <p class="text-on-surface-variant text-base leading-relaxed mb-6">Add more panels or storage capacity to your existing PowerXpress infrastructure.</p>
+          <div class="mt-auto flex items-center justify-between">
+            <span class="text-xs text-on-surface-variant uppercase font-bold tracking-wider">Inventory Access</span>
+            <span class="material-symbols-outlined text-primary group-hover:translate-x-2 transition-transform">arrow_forward</span>
+          </div>
+        </button>
+      </section>
+      <!-- Detailed Specs Preview -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 pt-8 border-t border-outline-variant/30 reveal">
+        <div class="md:col-span-2 obsidian-card rounded-xl p-8 relative overflow-hidden group border-0">
+          <img alt="Advanced Solar Panel Array" class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-20 group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMCHMwnK8Iasuppk3d1rTldP-uQhJygqYy2eVlPgYx-kNHgGUD30QidOuALzDn7Ahy_KSjwqEXxLOhsIMcm5l_oBFdAwUytBdoQ9ul4upsCjB89K8NVi6xZNmFBlPEPanSqtA8IGUZTp8IA_8fENYhR8f6byXE7LZCb58P7X062Xd4xbTibnCFTkgtFQoZwtXsmIChLmPuKu7nwsnPg0Hf0eOLxZd9x66meyzEq_MFbovUHrCGlvpm4c1-4eZZFEXxxK4Ufcb7KiA"/>
+          <div class="relative z-10">
+            <h4 class="text-xl font-bold mb-4">Core Technology: X-Cell 400W</h4>
+            <p class="text-sm text-on-surface-variant mb-6 max-w-md">Our monocrystalline bifacial panels deliver 22.4% efficiency with a sleek obsidian finish that blends into your architecture.</p>
+            <div class="flex gap-4">
+              <div class="bg-surface-container-highest/80 px-4 py-2 rounded-lg backdrop-blur-sm border border-outline-variant/30"><span class="block text-[10px] text-on-surface-variant uppercase font-bold">Efficiency</span><span class="font-bold text-primary">22.4%</span></div>
+              <div class="bg-surface-container-highest/80 px-4 py-2 rounded-lg backdrop-blur-sm border border-outline-variant/30"><span class="block text-[10px] text-on-surface-variant uppercase font-bold">Warranty</span><span class="font-bold text-primary">25 Yrs</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-primary/10 border border-primary/30 rounded-xl p-8 flex flex-col justify-between hover:bg-primary/15 transition-colors">
+          <div>
+            <span class="material-symbols-outlined text-primary mb-4">verified</span>
+            <h4 class="text-lg font-bold mb-2 text-on-surface">Certified Installation</h4>
+            <p class="text-xs text-on-surface-variant leading-relaxed">Every Solar + Storage system includes white-glove setup by our Tier-1 engineering partners.</p>
+          </div>
+          <button class="text-xs text-primary uppercase font-bold tracking-widest flex items-center gap-2 group mt-4">Learn More <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">north_east</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sticky Sidebar -->
+    <aside class="lg:col-span-4 reveal">
+      <div class="sticky top-32 obsidian-card rounded-2xl p-8 shadow-2xl">
+        <div class="flex justify-between items-center mb-8">
+          <h2 class="text-xl font-bold">Live Summary</h2>
+          <span class="px-3 py-1 bg-surface-container-highest rounded-full text-[10px] uppercase text-on-surface-variant font-bold">V2.4 Engine</span>
+        </div>
+        <div class="space-y-6 mb-10">
+          <div class="flex justify-between items-start">
+            <div><span class="block text-xs text-on-surface-variant uppercase mb-1 font-bold">System Type</span><span class="text-sm font-semibold">Solar + Storage</span></div>
+            <span class="text-primary material-symbols-outlined" style="font-variation-settings:'FILL' 1;">check_circle</span>
+          </div>
+          <div class="flex justify-between items-start opacity-30">
+            <div><span class="block text-xs text-on-surface-variant uppercase mb-1 font-bold">Module Count</span><span class="text-sm font-semibold">Pending Selection...</span></div>
+            <span class="text-on-surface-variant material-symbols-outlined">radio_button_unchecked</span>
+          </div>
+          <div class="flex justify-between items-start opacity-30">
+            <div><span class="block text-xs text-on-surface-variant uppercase mb-1 font-bold">Storage Unit</span><span class="text-sm font-semibold">Pending Selection...</span></div>
+            <span class="text-on-surface-variant material-symbols-outlined">radio_button_unchecked</span>
+          </div>
+        </div>
+        <!-- Compatibility Meter -->
+        <div class="mb-8 p-4 bg-background/50 rounded-xl border border-outline-variant/30">
+          <div class="flex justify-between items-center mb-2">
+            <span class="text-[10px] text-on-surface-variant uppercase font-bold">Compatibility Score</span>
+            <span class="text-primary text-xs font-bold">100%</span>
+          </div>
+          <div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden"><div class="h-full bg-primary w-full shadow-[0_0_10px_rgba(0,152,241,0.5)]"></div></div>
+          <p class="text-[10px] text-on-surface-variant mt-3 flex items-start gap-2"><span class="material-symbols-outlined text-[14px] text-primary">bolt</span><span>All selected modules are optimized for peak performance.</span></p>
+        </div>
+        <!-- Price Block -->
+        <div class="mb-10">
+          <span class="block text-xs text-on-surface-variant uppercase mb-1 font-bold">Estimated Total</span>
+          <div class="flex items-baseline gap-2">
+            <span class="text-4xl font-bold text-on-surface">$12,840</span>
+            <span class="text-xs text-on-surface-variant font-bold uppercase">USD*</span>
+          </div>
+          <span class="text-[10px] text-on-surface-variant/60 italic leading-tight mt-1 block">*Excludes local incentives and installation permits.</span>
+        </div>
+        <div class="space-y-4">
+          <button class="w-full py-4 bg-primary text-on-primary font-bold text-sm tracking-[0.15em] uppercase rounded-lg hover:shadow-[0_0_30px_rgba(0,152,241,0.3)] transition-all transform hover:-translate-y-0.5 active:scale-95">Next: Component Specs</button>
+          <div class="grid grid-cols-2 gap-3">
+            <button class="py-3 bg-surface-container-highest text-on-surface text-[10px] font-bold uppercase tracking-widest rounded-lg hover:bg-surface-container transition-colors border border-outline-variant/30 active:scale-95">Save Design</button>
+            <button class="py-3 bg-surface-container-highest text-on-surface text-[10px] font-bold uppercase tracking-widest rounded-lg hover:bg-surface-container transition-colors border border-outline-variant/30 active:scale-95">Share Tech</button>
+          </div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<!-- ═══════════════════════════════ UNIFIED FOOTER ═══════════════════════════════ -->
+<footer class="bg-[#0F1A2B] w-full pt-24 pb-12 font-body">
+  <div class="max-w-7xl mx-auto px-8 grid grid-cols-2 md:grid-cols-4 gap-12 text-sm leading-relaxed">
+    <div class="col-span-2 md:col-span-1 space-y-6">
+      <img alt="PowerXpress" class="h-8 w-auto brightness-0 invert" src="https://lh3.googleusercontent.com/aida/ADBb0ug-lxE44XHwJBbLVEwP7fHTaucksv5QbYGbxkELyCixWL8QtZ4Ebjy6M53ysh7XsFQQUpi836YnSuGTnYsGOwltGktg0hQpI-tLol4yCgYuUcWju3PhruJpboMmPI7jSnYBl-YeKJOK-1rrl1knR7AuD0juDFmVj8sVSZokAMiBSZM9yGrOO0WsXQeq3CzsGnaqTFywW_xUMxLRzwKAaP1L2WCBuFNYURRW3ZXDIEK2iEa78b6HDPm9Dyzh5puFgvqSYKg3hce7d7Q"/>
+      <p class="text-slate-500 opacity-80">Empowering the next generation of energy independence through kinetic innovation and storage excellence.</p>
+      <p class="text-xs uppercase tracking-widest text-slate-500/60 font-headline">© 2024 PowerXpress. Kinetic Monolith Systems.</p>
+    </div>
+    <div class="space-y-4">
+      <h4 class="font-headline font-bold text-white uppercase tracking-wider text-xs">Solutions</h4>
+      <nav class="flex flex-col gap-2">
+        <a class="text-slate-500 hover:text-sky-400 transition-colors opacity-80 hover:opacity-100" href="#">Solar Panels</a>
+        <a class="text-slate-500 hover:text-sky-400 transition-colors opacity-80 hover:opacity-100" href="#">Battery Hub</a>
+        <a class="text-slate-500 hover:text-sky-400 transition-colors opacity-80 hover:opacity-100" href="#">EV Charging</a>
+      </nav>
+    </div>
+    <div class="space-y-4">
+      <h4 class="font-headline font-bold text-white uppercase tracking-wider text-xs">Company</h4>
+      <nav class="flex flex-col gap-2">
+        <a class="text-slate-500 hover:text-sky-400 transition-colors opacity-80 hover:opacity-100" href="#">About Us</a>
+        <a class="text-slate-500 hover:text-sky-400 transition-colors opacity-80 hover:opacity-100" href="#">Careers</a>
+        <a class="text-slate-500 hover:text-sky-400 transition-colors opacity-80 hover:opacity-100" href="#">Contact</a>
+      </nav>
+    </div>
+    <div class="space-y-4">
+      <h4 class="font-headline font-bold text-white uppercase tracking-wider text-xs">Legal &amp; Support</h4>
+      <nav class="flex flex-col gap-2">
+        <a class="text-slate-500 hover:text-sky-400 transition-colors opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+        <a class="text-slate-500 hover:text-sky-400 transition-colors opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+        <a class="text-sky-400 hover:text-sky-300 transition-colors text-xs font-bold" href="#"><span class="inline-block w-2 h-2 rounded-full bg-emerald-500 mr-1.5 shadow-[0_0_6px_rgba(16,185,129,0.6)]"></span>System Status: Operational</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+window.addEventListener('scroll', () => {
+  const inner = document.querySelector('#main-nav > div');
+  if (window.scrollY > 60) inner.style.background = 'rgba(10,18,35,0.85)';
+  else inner.style.background = '';
+}, { passive: true });
+</script>
+</body>
+</html>
