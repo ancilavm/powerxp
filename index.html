@@ -166,6 +166,59 @@ nav, footer { font-weight: 300; }
 h1, h2, h3, h4, h5, h6 { font-family: 'Space Grotesk', sans-serif !important; color: white; }
 h1, h2 { font-weight: 700; }
 h3, h4, h5, h6 { font-weight: 600; }
+
+/* ── Video Hero ── */
+#hero-scroll-container {
+  position: relative;
+  height: 300vh;
+}
+#video-hero {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+}
+#hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#hero-fallback {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.4) scale(1.05);
+}
+#hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(10,18,35,0.75) 0%, rgba(10,18,35,0.25) 60%, transparent 100%);
+  pointer-events: none;
+}
+#hero-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 3rem;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  pointer-events: none;
+}
+#hero-content.hero-visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+@media (min-width: 1024px) {
+  #hero-content { padding: 0 6rem; }
+}
 </style>
 </head>
 <body class="bg-background text-on-surface font-sans antialiased selection:bg-primary/20 selection:text-white corporate-grid min-h-screen flex flex-col">
@@ -196,33 +249,43 @@ h3, h4, h5, h6 { font-weight: 600; }
   </div>
 </header>
 
-<main class="flex-grow pt-24 md:pt-32">
+<main class="flex-grow">
 
 <!-- ════════════════════════════════════════════════════════
-     HERO — background image | SVG animated paths | content
+     HERO — scroll-scrubbed video | pinned sticky
      ═══════════════════════════════════════════════════════ -->
-<section class="relative h-[80vh] min-h-[700px] flex items-center px-8 lg:px-24 overflow-hidden">
-  <!-- Layer 1: Background image -->
-  <div class="absolute inset-0 z-0">
-    <img alt="Futuristic Minimal House with PowerXpress system" class="w-full h-full object-cover brightness-[0.4] scale-105" src="/assets/images/backgrounds/hero-background.png"/>
-    <div class="absolute inset-0 bg-gradient-to-r from-background via-background/40 to-transparent"></div>
-    <div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/40"></div>
-  </div>
-  <!-- Layer 2: Content -->
-  <div class="relative z-10 max-w-3xl reveal">
-    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-background/40 backdrop-blur-md text-primary text-[9px] font-bold tracking-[0.3em] mb-6 font-body">
-      <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span> STATUS: OPERATIONAL
+<div id="hero-scroll-container">
+  <div id="video-hero">
+    <!-- Video layer -->
+    <video id="hero-video" muted playsinline preload="auto"
+           poster="/assets/images/backgrounds/hero-background.png"
+           onerror="this.style.display='none';document.getElementById('hero-fallback').style.display='block'">
+      <source src="/video/hero-video.mp4" type="video/mp4">
+    </video>
+    <!-- Fallback image (hidden unless video fails) -->
+    <img id="hero-fallback" style="display:none"
+         src="/assets/images/backgrounds/hero-background.png"
+         alt="Futuristic Minimal House with PowerXpress system"/>
+    <!-- Dark overlay -->
+    <div id="hero-overlay"></div>
+    <!-- Content — revealed in last 15-20% of scroll -->
+    <div id="hero-content">
+      <div class="max-w-3xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-primary/30 bg-background/40 backdrop-blur-md text-primary text-[9px] font-bold tracking-[0.3em] mb-6 font-body">
+          <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span> STATUS: OPERATIONAL
+        </div>
+        <h1 class="text-5xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight leading-[1.05] mb-6">The Future of<br/><span class="text-primary">Autonomy</span></h1>
+        <p class="text-base md:text-lg text-on-surface-variant mb-10 max-w-xl leading-relaxed font-body">
+          Experience a premium multi-brand ecosystem designed for seamless solar integration, intelligent storage, and hyper-efficient mobility.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <button class="btn-kinetic btn-kinetic-primary px-10 py-4">Configure System</button>
+          <button class="btn-kinetic btn-kinetic-outline px-10 py-4">View Ecosystem</button>
+        </div>
+      </div>
     </div>
-    <h1 class="text-5xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tight leading-[1.05] mb-6">The Future of<br/><span class="text-primary">Autonomy</span></h1>
-    <p class="text-base md:text-lg text-on-surface-variant mb-10 max-w-xl leading-relaxed font-body">
-      Experience a premium multi-brand ecosystem designed for seamless solar integration, intelligent storage, and hyper-efficient mobility.
-    </p>
-    <div class="flex flex-wrap gap-4">
-      <button class="btn-kinetic btn-kinetic-primary px-10 py-4">Configure System</button>
-      <button class="btn-kinetic btn-kinetic-outline px-10 py-4">View Ecosystem</button>
-    </div>
   </div>
-</section>
+</div>
 
 <!-- ── Partners Bar ── -->
 <section class="py-12 px-8 lg:px-24 bg-background border-y border-white/5 overflow-hidden with-grid reveal">
@@ -782,6 +845,67 @@ window.addEventListener('scroll', () => {
   const inner = document.querySelector('#main-nav > div');
   if (inner) inner.style.background = window.scrollY > 60 ? 'rgba(10,18,35,0.88)' : '';
 }, { passive: true });
+</script>
+
+<!-- GSAP + ScrollTrigger (hero video scrub only) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+/* ════════════════════════════════════════════════════
+   5. VIDEO HERO — GSAP ScrollTrigger scrub
+   ════════════════════════════════════════════════════ */
+(function initVideoHero() {
+  const video   = document.getElementById('hero-video');
+  const content = document.getElementById('hero-content');
+  if (!video || !content) return;
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // videoDuration is null until loadedmetadata fires — scrub is no-op until then
+  let videoDuration = null;
+
+  // Create ScrollTrigger immediately: pin + reveal work without video
+  ScrollTrigger.create({
+    trigger: '#hero-scroll-container',
+    start: 'top top',
+    end: 'bottom bottom',
+    pin: '#video-hero',
+    scrub: 0.8,
+    onUpdate(self) {
+      const progress = self.progress;
+      // Scrub only once duration is known
+      if (videoDuration) {
+        video.currentTime = progress * videoDuration;
+      }
+      // Reveal content in last ~18% of scroll
+      if (progress >= 0.82) {
+        content.classList.add('hero-visible');
+      } else {
+        content.classList.remove('hero-visible');
+      }
+    }
+  });
+
+  // When video loads: capture duration and keep it paused (scrub drives it)
+  const onMeta = () => {
+    videoDuration = video.duration;
+    video.pause();
+  };
+  if (video.readyState >= 1) {
+    onMeta();
+  } else {
+    video.addEventListener('loadedmetadata', onMeta, { once: true });
+  }
+
+  // On video/source error: swap to fallback image
+  const showFallback = () => {
+    video.style.display = 'none';
+    const fb = document.getElementById('hero-fallback');
+    if (fb) fb.style.display = 'block';
+  };
+  video.addEventListener('error', showFallback, { once: true });
+  video.querySelector('source')?.addEventListener('error', showFallback, { once: true });
+})();
 </script>
 </body>
 </html>
